@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Boisson',
+            'name' => 'Vegan',
             'category_logo_path' => 'boisson.png',
             'description' => 'Boisson liquide accompagnants tout mets',
         ]);
-
+/*
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Snack',
             'category_logo_path' => 'snack.png',
@@ -44,12 +44,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Appéritif',
+            'name' => 'Res',
             'category_logo_path' => 'snack.png',
             'description' => 'Nourriture rapide pour les petits creux',
         ]);
 
-       /*  \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory(7)->create([
             'rule' => 'eatery'
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
                     'eatery_id' => $eatery->id,
                 ]);
             });
-        }); */
+        });
 
         \App\Models\User::factory(3)->create([
             'rule' => 'deliverer'
@@ -70,6 +70,6 @@ class DatabaseSeeder extends Seeder
             Deliverer::factory()->create([
                 'user_id' => $user->id
             ]);
-        });
+        }); */
     }
 }
