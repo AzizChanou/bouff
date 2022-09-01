@@ -1,6 +1,6 @@
 <script setup>
 import BreezeButton from '@/Components/Button.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
+import AuthenticationLayout from '@/Layouts/Authentication.vue';
 import BreezeInput from '@/Components/Input.vue';
 import BreezeInputError from '@/Components/InputError.vue';
 import BreezeLabel from '@/Components/Label.vue';
@@ -26,7 +26,7 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <AuthenticationLayout>
         <Head title="Reset Password" />
 
         <form @submit.prevent="submit">
@@ -54,5 +54,5 @@ const submit = () => {
                 </BreezeButton>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </AuthenticationLayout>
 </template>
