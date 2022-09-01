@@ -44,12 +44,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Res',
+            'name' => 'Appéritif',
             'category_logo_path' => 'snack.png',
             'description' => 'Nourriture rapide pour les petits creux',
         ]);
 
-        \App\Models\User::factory(10)->create();
+       /*  \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory(7)->create([
             'rule' => 'eatery'
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
                     'eatery_id' => $eatery->id,
                 ]);
             });
-        });
+        }); */
 
         \App\Models\User::factory(3)->create([
             'rule' => 'deliverer'
