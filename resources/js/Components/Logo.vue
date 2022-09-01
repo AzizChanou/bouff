@@ -7,12 +7,12 @@ defineProps({
 <template>
     <div v-if="type == ''" class="flex justify-center">
         <img
-            src="/storage/assets/bouff_logo_long_black.svg"
+            src="../../../public/assets/svg/bouff_logo_long_black.svg"
             alt=""
             class="w-[60%]"
         />
         <img
-            src="/storage/assets/bouff_logo_short.svg"
+            src="../../../public/assets/svg/bouff_logo_short.svg"
             alt=""
             class="flex lg:hidden h-8 hover:animate-spin"
         />
@@ -23,7 +23,7 @@ defineProps({
     </div>
     <div v-else class="flex justify-center">
         <img
-            src="/storage/assets/bouff_logo_long_black.svg"
+            src="../../../public/assets/svg/bouff_logo_long_black.svg"
             alt=""
             class="w-[60%]"
         />

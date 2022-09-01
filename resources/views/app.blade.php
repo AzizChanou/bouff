@@ -8,9 +8,9 @@
     <title inertia>{{ config('app.name', 'Bouff') }}</title>
 
 
-    <link rel="shortcut icon" href="/storage/assets/bouff_logo_short.svg" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/storage/assets/bouff_logo_short.svg">
-    <link href="{{asset('webfonts/uicons-solid-rounded.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('assets/svg/bouff_logo_short.svg')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{asset('assets/svg/bouff_logo_short.svg')}}">
+    <link href="{{asset('assets/webfonts/uicons-solid-rounded.css')}}" rel="stylesheet">
 
     <!-- Fonts -->
 

@@ -13,12 +13,12 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col items-center space-y-12">
             <Link :href="route('home.index')" as="a" class="h-8">
                 <img
-                    src="/storage/assets/bouff_logo_long_black.svg"
+                    src="../../../public/assets/svg/bouff_logo_long_black.svg"
                     alt=""
                     class="hidden lg:flex h-8"
                 />
                 <img
-                    src="/storage/assets/bouff_logo_short.svg"
+                    src="../../../public/assets/svg/bouff_logo_short.svg"
                     alt=""
                     class="flex lg:hidden h-8 hover:animate-spin"
                 />

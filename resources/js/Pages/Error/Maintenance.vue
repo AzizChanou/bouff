@@ -4,7 +4,7 @@
     <div class="h-screen w-screen flex justify-center items-center">
         <div class="p-10 justify-center">
             <img
-                src="/storage/assets/err.svg"
+                src="../../../../public/assets/svg/err.svg"
                 alt=""
                 class="animate-bounce-slow"
             />

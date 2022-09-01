@@ -1,6 +1,6 @@
 <template>
     <img
-        src="/storage/assets/bouff_logo_short.svg"
+        src="../../../public/assets/svg/bouff_logo_short.svg"
         alt=""
         class="animate-pulse"
     />

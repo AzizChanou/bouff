@@ -29,7 +29,7 @@ const currentYear = new Date().getFullYear();
                     officiis expedita.
                 </p>
                 <img
-                    src="/storage/assets/team_one.svg"
+                    src="../../../../public/assets/svg/team_one.svg"
                     alt=""
                     class="mx-auto hover:scale-110 duration-500"
                 />
@@ -53,7 +53,7 @@ const currentYear = new Date().getFullYear();
                     officiis expedita.
                 </p>
                 <img
-                    src="/storage/assets/team_two.svg"
+                    src="../../../../public/assets/svg/team_two.svg"
                     alt=""
                     class="mx-aut mx-auto hover:scale-110 duration-500"
                 />

@@ -66,7 +66,7 @@ export default {
         <div class="w-[26%] sm:w-[24%]">
             <Link href="/">
                 <img
-                    src="/storage/assets/bouff_logo_long_black.svg"
+                    src="/../../../public/assets/svg/bouff_logo_long_black.svg"
                     alt="Logo Bouff"
                     class=""
                 />
