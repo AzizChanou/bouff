@@ -2,6 +2,7 @@
 import { shallowRef } from "vue";
 import Cashier from "./Cashier.vue";
 import Tracking from "./Tracking.vue";
+import Loading from "./Loading.vue";
 
 const comp = shallowRef(Cashier);
 const show = (components) => {
@@ -12,6 +13,7 @@ const show = (components) => {
 
 <template>
     <div
+        v-if="$page.props.auth.user.rule === 'user'"
         id="caisse"
         class="hidden w-full md:w-[28%] lg:w-[26%] h-full pt-10 pb-2 md:flex flex-col space-y-2"
     >
@@ -32,5 +34,8 @@ const show = (components) => {
             </button>
         </div>
         <Component :is="comp" />
+    </div>
+    <div v-else class="flex items-center justify-center">
+        <Loading />
     </div>
 </template>

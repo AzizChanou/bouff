@@ -55,7 +55,7 @@ const currentYear = new Date().getFullYear();
                         }"
                         class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                     >
-                        <i class="fi-sr-add-document"></i>
+                        <i class="fi-sr-hat-chef"></i>
                         <span class="hidden lg:flex">Restaurant</span>
                     </Link>
                     <Link

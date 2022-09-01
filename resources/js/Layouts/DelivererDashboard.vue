@@ -1,5 +1,4 @@
 <script setup>
-import RightSideBar from "@/Components/RightSideBar.vue";
 import LeftSideBar from "@/Components/LeftSideBar.vue";
 import MobileNavBar from "@/Components/MobileNavBar.vue";
 import MobileFootBar from "@/Components/MobileFootBar.vue";

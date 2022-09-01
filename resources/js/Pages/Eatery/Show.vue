@@ -60,12 +60,6 @@ const show = (components) => {
                         />
                         <div class="h-28 md:h-0"></div>
                     </ul>
-                    <ul
-                        v-if="comp === boisson"
-                        class="overflow-y-auto divide-y"
-                    >
-                        <div class="h-28 md:h-0"></div>
-                    </ul>
                 </div>
             </div>
         </div>
