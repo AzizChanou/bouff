@@ -1,8 +1,8 @@
 <script setup>
 import AuthenticationLayout from "@/Layouts/Authentication.vue";
-import FirstStep from "./steps/FirstStep.vue";
-import SecondStep from "./steps/SecondStep.vue";
-import LastStep from "./steps/LastStep.vue";
+import FirstStep from "./Steps/FirstStep.vue";
+import SecondStep from "./Steps/SecondStep.vue";
+import LastStep from "./Steps/LastStep.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from "vue";
 
