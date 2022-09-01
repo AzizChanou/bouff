@@ -19,14 +19,14 @@ const show = (components) => {
             <button
                 @click="show(Cashier)"
                 class="text-center border-bouff-primarytree border-b-8 pb-1 w-1/2 hover:border-bouff-primarytwo duration-300 font-bold"
-                :class="{ 'border-bouff-primarytwo': this.comp === Cashier }"
+                :class="{ 'border-bouff-primarytwo': comp === Cashier }"
             >
                 Caisse
             </button>
             <button
                 @click="show(Tracking)"
                 class="text-center border-bouff-primarytree border-b-8 pb-1 w-1/2 hover:border-bouff-primarytwo duration-300 font-bold"
-                :class="{ 'border-bouff-primarytwo': this.comp === Tracking }"
+                :class="{ 'border-bouff-primarytwo': comp === Tracking }"
             >
                 Suivi
             </button>
