@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 
 <template>
     <ul
+        v-if="$page.props.auth.user && $page.props.auth.user.rule === 'user'"
         class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
     >
         <li>
@@ -13,11 +14,13 @@ import { Link } from "@inertiajs/inertia-vue3";
                 ><i class="fi-sr-home"></i
             ></Link>
         </li>
-        <!-- <Link
-            :href="route('user.index')"
-            :class="{ 'text-bouff-primaryone': $page.url === '/search' }"
-            ><i class="fi-sr-search"></i
-        ></Link> -->
+        <li>
+            <Link
+                :href="route('user.index')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/search' }"
+                ><i class="fi-sr-search"></i
+            ></Link>
+        </li>
         <li>
             <Link
                 :href="route('order.user')"
@@ -33,4 +36,62 @@ import { Link } from "@inertiajs/inertia-vue3";
             ></Link>
         </li>
     </ul>
+    <ul
+        v-if="
+            $page.props.auth.user && $page.props.auth.user.rule === 'deliverer'
+        "
+        class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
+    >
+        <li>
+            <Link
+                :href="route('order.deliverer')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/' }"
+                ><i class="fi-sr-home"></i
+            ></Link>
+        </li>
+        <li>
+            <Link
+                :href="route('home.treateddeliverer')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/' }"
+                ><i class="fi-sr-home"></i
+            ></Link>
+        </li>
+        <li>
+            <Link
+                :href="route('user.index')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/' }"
+                ><i class="fi-sr-home"></i
+            ></Link>
+        </li>
+    </ul>
+    <ul
+        v-if="$page.props.auth.user && $page.props.auth.user.rule === 'eatery'"
+        class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
+    >
+        <li>
+            <Link
+                :href="route('order.eatery')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/order/eatery' }"
+                ><i class="fi-sr-receipt"></i
+            ></Link>
+        </li>
+        <li>
+            <Link
+                :href="route('order.treatedeatery')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/order/treatedeatery' }"
+                ><i class="fi-sr-checkbox"></i
+            ></Link>
+        </li>
+        <li>
+            <Link
+                :href="route('eatery.index')"
+                :class="{ 'text-bouff-primaryone': $page.url === '/eatery' }"
+                ><i class="fi-sr-hat-chef"></i
+            ></Link>
+        </li>
+    </ul>
+    <ul
+        v-else
+        class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
+    ></ul>
 </template>

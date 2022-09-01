@@ -124,7 +124,7 @@ class OrderController extends Controller
             ->where('orders.status', '<>', 'Treatment')
             ->orWhere('orders.status', '<>', 'Preparation')
             ->join('food', 'food.id', 'order_items.food_id')
-            ->get()->dd();
+            ->get();
 
         $getOrders = Auth::user()->eatery->orders;
 
@@ -273,7 +273,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->transactionid);
         $kkiapay = new \Kkiapay\Kkiapay(
             env('KKIPA_PUBLIC_KEY'),
             env('KKIPA_PRIVAYE_KEY'),
@@ -291,7 +290,6 @@ class OrderController extends Controller
 
         $transaction =  $kkiapay->verifyTransaction('57CtXLQ7Q');
         if ($transaction->status === 'SUCCESS' && $request->cart["totalCartTva"] == $totalPrice) {
-            dd('SUCCESS');
             $order =  Order::create([
                 'comment' => $request->comment,
                 'phone' => $request->phone,
