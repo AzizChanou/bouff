@@ -37,10 +37,3 @@ Route::inertia('CGV', 'Infos/Cgv')
     ->name('cgv');
 
 require __DIR__ . '/auth.php';
-
-
-
-// Route::resource('advertising', AdvertisingController::class);
-// Route::resource('rating', RatingController::class);
-// Route::resource('profil', OrderItemController::class);
-// Route::resource('profil', FoodCategoryController::class);
