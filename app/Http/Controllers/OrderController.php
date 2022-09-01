@@ -273,7 +273,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->transactionId);
+        dd($request->transactionid);
         $kkiapay = new \Kkiapay\Kkiapay(
             env('KKIPA_PUBLIC_KEY'),
             env('KKIPA_PRIVAYE_KEY'),

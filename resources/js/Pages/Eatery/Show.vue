@@ -20,7 +20,9 @@ const show = (components) => {
     <Head :title="eatery.label" />
     <UserDashboard>
         <div class="flex flex-col space-y-4 pb-8 relative h-full">
-            <div class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')] bg-cover">
+            <div
+                class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')] bg-cover"
+            >
                 <div class="bg-bouff-secondarytwo/20 relative w-full">
                     <div class="p-24">
                         <h2 class="text-white text-center text-3xl uppercase">
@@ -32,15 +34,11 @@ const show = (components) => {
             <div class="">
                 <div class="flex flex-row justify-between">
                     <button
-                        @click="show(FoodEatery)"
-                        class="text-center border-b-8 border-bouff-primarytree pb-1 w-1/2 font-bold"
-                        :class="{
-                            'border-bouff-primarytwo': comp === FoodEatery,
-                        }"
+                        class="text-center border-b-8 border-bouff-primarytwo pb-1 w-full font-bold"
                     >
-                        Bouff
+                        BOUFF
                     </button>
-                    <button
+                    <!--  <button
                         @click="show(boisson)"
                         class="text-center border-b-8 border-bouff-primarytree pb-1 w-1/2 font-bold hover:border-bouff-primarytwo duration-300"
                         :class="{
@@ -48,7 +46,7 @@ const show = (components) => {
                         }"
                     >
                         Boisson
-                    </button>
+                    </button> -->
                 </div>
                 <div class="overflow-hidden">
                     <ul

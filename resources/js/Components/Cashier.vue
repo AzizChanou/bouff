@@ -3,7 +3,7 @@ import { useCartStore } from "@/store/cart";
 import { useModalStore } from "@/store/modal";
 import ButtonVue from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, reactive, ref } from "vue";
 import {
     openKkiapayWidget,
     addKkiapayListener,
@@ -18,10 +18,9 @@ const form = useForm({
     comment: "String",
     address: "Cotonou",
     phone: "61000001",
-    transactionid: String,
-    account: String,
+    transactionid: "",
+    account: "",
 });
-
 const submit = () => {
     form.post(route("order.store"));
 };
@@ -45,19 +44,15 @@ const pay = () => {
 };
 
 const successHandler = (response) => {
-    console.log(response);
     form.transactionid = response.transactionId;
     form.account = response.account;
 };
 
 onMounted(() => {
     addKkiapayListener("success", successHandler);
-    console.log("Entre");
-    console.log(form.transactionid);
 });
 onUnmounted(() => {
     removeKkiapayListener("success", successHandler);
-    console.log("Sort");
 });
 </script>
 
