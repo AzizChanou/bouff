@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             'category_logo_path' => 'boisson.png',
             'description' => 'Boisson liquide accompagnants tout mets',
         ]);
-/*
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Snack',
             'category_logo_path' => 'snack.png',
@@ -49,6 +48,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Nourriture rapide pour les petits creux',
         ]);
 
+        /*
         \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory(7)->create([
@@ -63,13 +63,13 @@ class DatabaseSeeder extends Seeder
                 ]);
             });
         });
-
+*/
         \App\Models\User::factory(3)->create([
             'rule' => 'deliverer'
         ])->each(function ($user) {
             Deliverer::factory()->create([
                 'user_id' => $user->id
             ]);
-        }); */
+        });
     }
 }
