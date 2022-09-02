@@ -64,7 +64,7 @@ export default {
             </div>
         </div>
         <div class="w-[26%] sm:w-[24%]">
-            <Link href="/">
+            <Link :href="route('home.index')">
                 <img
                     src="../../../public/assets/svg/bouff_logo_long_black.svg"
                     alt="Logo Bouff"
@@ -73,7 +73,10 @@ export default {
             </Link>
         </div>
 
-        <button @click="showCashier()" class="relative flex items-center">
+        <button
+            @click="showCashier()"
+            class="relative flex items-center"
+        >
             <i class="fi-sr-shopping-cart"></i>
             <span
                 v-if="cartStore.totalCart > 0"

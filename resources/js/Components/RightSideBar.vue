@@ -13,7 +13,7 @@ const show = (components) => {
 
 <template>
     <div
-        v-if="$page.props.auth.user.rule === 'user'"
+        v-if="$page.props.auth.user && $page.props.auth.user.rule === 'user'"
         id="caisse"
         class="hidden w-full md:w-[28%] lg:w-[26%] h-full pt-10 pb-2 md:flex flex-col space-y-2"
     >

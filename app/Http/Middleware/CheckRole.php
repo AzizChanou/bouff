@@ -20,11 +20,12 @@ class CheckRole
     {
         if ($role == 'user' && Auth::user()->role != 'user') {
             abort(403);
+            // return redirect()->back()->with('error', 'Vous n\'êtes pas autorisé à effectuer cette opération');
         }
-        if ($role == 'deliverer' && Auth::deliverer()->role != 'user') {
+        if ($role == 'deliverer' && Auth::user()->role != 'user') {
             abort(403);
         }
-        if ($role == 'eatery' && Auth::eatery()->role != 'user') {
+        if ($role == 'eatery' && Auth::user()->role != 'user') {
             abort(403);
         }
         return $next($request);

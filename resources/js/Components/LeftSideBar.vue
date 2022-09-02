@@ -25,10 +25,6 @@ const currentYear = new Date().getFullYear();
             </Link>
             <div class="space-y-12 flex flex-col">
                 <Link
-                    v-if="
-                        $page.props.auth.user.rule !== 'deliverer' &&
-                        $page.props.auth.user.rule !== 'eatery'
-                    "
                     :href="route('home.index')"
                     as="a"
                     :class="{
@@ -70,7 +66,7 @@ const currentYear = new Date().getFullYear();
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
-                            <i class="fi-sr-receipt"></i>
+                            <i class="fi-sr-document"></i>
                             <span class="hidden lg:flex">Commandes</span>
                         </Link>
                     </li>
@@ -94,7 +90,7 @@ const currentYear = new Date().getFullYear();
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
-                            <i class="fi-sr-hat-chef"></i>
+                            <i class="fi-sr-shop"></i>
                             <span class="hidden lg:flex">Restaurant</span>
                         </Link>
                     </li>
@@ -108,7 +104,7 @@ const currentYear = new Date().getFullYear();
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
-                            <i class="fi-sr-receipt"></i>
+                            <i class="fi-sr-document"></i>
                             <span class="hidden lg:flex">Commandes</span>
                         </Link>
                     </li>
@@ -131,7 +127,7 @@ const currentYear = new Date().getFullYear();
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
-                            <i class="fi-sr-receipt"></i>
+                            <i class="fi-sr-document"></i>
                             <span class="hidden lg:flex">Restaurant</span>
                         </Link>
                     </li>
@@ -145,7 +141,7 @@ const currentYear = new Date().getFullYear();
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
-                            <i class="fi-sr-receipt"></i>
+                            <i class="fi-sr-document"></i>
                             <span class="hidden lg:flex">Commandes</span>
                         </Link>
                     </li>
@@ -189,7 +185,7 @@ const currentYear = new Date().getFullYear();
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
                             <i class="fi-sr-sign-out-alt"></i>
-                            <span class="hidden lg:flex">Deconnexion</span>
+                            <span class="hidden lg:flex">Déconnexion</span>
                         </Link>
                         <Link
                             v-else

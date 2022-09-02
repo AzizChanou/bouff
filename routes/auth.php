@@ -65,40 +65,40 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/redirectAuthenticatedUser', [RedirectAuthenticatedUserController::class, 'home']);
 
-    // Route::group(['middleware' => 'checkRole:user'], function () {
-    Route::resource('user', UserController::class)->except('create', 'store');
-    Route::get('order', [OrderController::class, 'user'])
-        ->name('order.user');
-    Route::post('order', [OrderController::class, 'store'])
-        ->name('order.store');
-    Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])
-        ->name('order.delivered');
-    // });
+    Route::group(['middleware' => 'checkRole:user'], function () {
+        Route::resource('user', UserController::class)->except('create', 'store');
+        Route::get('order', [OrderController::class, 'user'])
+            ->name('order.user');
+        Route::post('order', [OrderController::class, 'store'])
+            ->name('order.store');
+        Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])
+            ->name('order.delivered');
+    });
 
 
-    // Route::group(['middleware' => 'checkRole:deliverer'], function () {
-    Route::resource('deliverer', DelivererController::class);
-    Route::get('order/deliverer', [OrderController::class, 'deliverer'])
-        ->name('order.deliverer');
-    Route::get('order/treateddeliverer', [OrderController::class, 'treateddeliverer'])
-        ->name('order.treateddeliverer');
-    Route::get('order/retrieve/{order}', [OrderController::class, 'retrieve'])
-        ->name('order.retrieve');
-    Route::get('order/getorder/{order}', [OrderController::class, 'getorder'])
-        ->name('order.getorder');
-    // });
+    Route::group(['middleware' => 'checkRole:deliverer'], function () {
+        Route::resource('deliverer', DelivererController::class);
+        Route::get('order/deliverer', [OrderController::class, 'deliverer'])
+            ->name('order.deliverer');
+        Route::get('order/treateddeliverer', [OrderController::class, 'treateddeliverer'])
+            ->name('order.treateddeliverer');
+        Route::get('order/retrieve/{order}', [OrderController::class, 'retrieve'])
+            ->name('order.retrieve');
+        Route::get('order/getorder/{order}', [OrderController::class, 'getorder'])
+            ->name('order.getorder');
+    });
 
 
-    // Route::group(['middleware' => 'checkRole:eatery'], function () {
-    Route::resource('food', FoodController::class)->except('show');
-    Route::resource('eatery', EateryController::class)->except('show');
-    Route::get('stats/eatery', [EateryController::class, 'stats'])
-        ->name('eatery.stats');
-    Route::get('order/eatery', [OrderController::class, 'eatery'])
-        ->name('order.eatery');
-    Route::get('order/treatedeatery', [OrderController::class, 'treatedeatery'])
-        ->name('order.treatedeatery');
-    Route::get('order/ready/{order}', [OrderController::class, 'ready'])
-        ->name('order.ready');
-    // });
+    Route::group(['middleware' => 'checkRole:eatery'], function () {
+        Route::resource('food', FoodController::class)->except('show');
+        Route::resource('eatery', EateryController::class)->except('show');
+        Route::get('stats/eatery', [EateryController::class, 'stats'])
+            ->name('eatery.stats');
+        Route::get('order/eatery', [OrderController::class, 'eatery'])
+            ->name('order.eatery');
+        Route::get('order/treatedeatery', [OrderController::class, 'treatedeatery'])
+            ->name('order.treatedeatery');
+        Route::get('order/ready/{order}', [OrderController::class, 'ready'])
+            ->name('order.ready');
+    });
 });

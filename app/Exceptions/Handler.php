@@ -73,11 +73,11 @@ class Handler extends ExceptionHandler
             return Inertia::render('Error/Maintenance', ['status' => $response->status()])
                 ->toResponse($request)
                 ->setStatusCode($response->status());
-        } /* elseif ($response->status() === 500) {
+        } elseif ($response->status() === 500) {
             return Inertia::render('Error/Serveur', ['status' => $response->status()])
                 ->toResponse($request)
                 ->setStatusCode($response->status());
-        } */ elseif ($response->status() === 419) {
+        } elseif ($response->status() === 419) {
             return back()->with([
                 'error' => ('The page expired, please try again.'),
             ]);

@@ -5,7 +5,7 @@ const navMenu = document.querySelector("navMenu");
 const menu = document.querySelector("#menu");
 const currentYear = new Date().getFullYear();
 
-const show = function () {
+const showMenu = function () {
     navMenu.classList.toggle("active");
     menu.classList.toggle("w-3/4");
     menu.classList.toggle("sm:w-2/4");
@@ -20,44 +20,58 @@ const show = function () {
     >
         <div class="p-8 py-20">
             <ul class="flex flex-col space-y-3 font-semibold divide-y-2">
-                <Link
-                    @click="show()"
-                    :href="route('about')"
-                    :class="{
-                        'font-bold text-bouff-primaryone':
-                            $page.url === 'apropos',
-                    }"
-                >
-                    <li class="p-2">A propos</li>
-                </Link>
-                <Link
-                    @click="show()"
-                    :href="route('faqs')"
-                    :class="{
-                        'font-bold text-bouff-primaryone':
-                            $page.url === '/faqs',
-                    }"
-                >
-                    <li class="p-2">FAQs</li>
-                </Link>
-                <Link
-                    @click="show()"
-                    :href="route('cgu')"
-                    :class="{
-                        'font-bold text-bouff-primaryone': $page.url === '/CGU',
-                    }"
-                >
-                    <li class="p-2">CGU</li>
-                </Link>
-                <Link
-                    @click="show()"
-                    :href="route('cgv')"
-                    :class="{
-                        'font-bold text-bouff-primaryone': $page.url === '/CGV',
-                    }"
-                >
-                    <li class="p-2">CGV</li>
-                </Link>
+                <li class="p-2">
+                    <Link
+                        :href="route('about')"
+                        :class="{
+                            'font-bold text-bouff-primaryone':
+                                $page.url === '/about',
+                        }"
+                        >A propos
+                    </Link>
+                </li>
+                <li class="p-2">
+                    <Link
+                        :href="route('faqs')"
+                        :class="{
+                            'font-bold text-bouff-primaryone':
+                                $page.url === '/faqs',
+                        }"
+                    >
+                        FAQs
+                    </Link>
+                </li>
+                <li class="p-2">
+                    <Link
+                        :href="route('cgu')"
+                        :class="{
+                            'font-bold text-bouff-primaryone':
+                                $page.url === '/CGU',
+                        }"
+                        >CGU
+                    </Link>
+                </li>
+                <li class="p-2">
+                    <Link
+                        :href="route('cgv')"
+                        :class="{
+                            'font-bold text-bouff-primaryone':
+                                $page.url === '/CGV',
+                        }"
+                        >CGV
+                    </Link>
+                </li>
+                <li class="p-2">
+                    <Link
+                        v-if="$page.props.auth.user"
+                        :href="route('logout')"
+                        method="post"
+                        as="button"
+                    >
+                        Déconnexion
+                    </Link>
+                    <Link v-else :href="route('login')">Se connecter</Link>
+                </li>
             </ul>
         </div>
         <div

@@ -17,8 +17,6 @@ import MobileOperationSection from "@/Components/MobileOperationSection.vue";
             <MobileNavBar />
 
             <MobileNavMenu />
-
-            <MobileOperationSection />
             <div
                 class="w-full md:w-[94%] lg:w-[86%] border-x-2 h-full overflow-y-auto space-y-6 pb-24 md:pb-0"
             >

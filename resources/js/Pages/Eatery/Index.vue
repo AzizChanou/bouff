@@ -42,7 +42,7 @@ defineProps({
                     >
                         <div class="w-1/4">
                             <i
-                                class=" fi-sr-layout-fluid text-7xl text-bouff-primaryone"
+                                class="fi-sr-hat-chef text-7xl text-bouff-primaryone"
                             ></i>
                         </div>
                         <span class="font-medium uppercase">Menu</span>
@@ -54,7 +54,7 @@ defineProps({
                     >
                         <div class="w-1/4">
                             <i
-                                class="fi-sr-receipt text-7xl text-bouff-primaryone"
+                                class="fi-sr-document text-7xl text-bouff-primaryone"
                             ></i>
                         </div>
                         <span class="font-medium uppercase">Commandes</span>
@@ -78,7 +78,7 @@ defineProps({
                     >
                         <div class="w-1/4">
                             <i
-                                class="fi-sr-shop text-7xl text-bouff-primaryone"
+                                class="fi-sr-hat-chef text-7xl text-bouff-primaryone"
                             ></i>
                         </div>
                         <span class="font-medium uppercase"
