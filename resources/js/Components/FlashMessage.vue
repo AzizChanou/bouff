@@ -20,9 +20,11 @@ export default {
 </script>
 
 <template>
-    <div class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50">
+    <div
+        v-if="$page.props.flash.success && show"
+        class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50"
+    >
         <div
-            v-if="$page.props.flash.success && show"
             class="flex items-center justify-center max-w-3xl bg-green-500 rounded"
         >
             <div class="flex items-center">
@@ -51,12 +53,17 @@ export default {
                 </svg>
             </button>
         </div>
+    </div>
+    <div
+        v-if="
+            ($page.props.flash.error ||
+                Object.keys($page.props.errors).length > 0) &&
+            show
+        "
+        class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50"
+    >
+        >
         <div
-            v-if="
-                ($page.props.flash.error ||
-                    Object.keys($page.props.errors).length > 0) &&
-                show
-            "
             class="flex items-center justify-between max-w-3xl bg-red-500 rounded"
         >
             <div class="flex items-center">

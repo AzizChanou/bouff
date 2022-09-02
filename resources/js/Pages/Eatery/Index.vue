@@ -25,7 +25,7 @@ defineProps({
     <EateryDashboard>
         <div class="flex flex-col space-y-4 pb-8 h-full">
             <div
-                class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')] bg-cover"
+                class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')]"
             >
                 <div class="bg-bouff-secondarytwo/20 relative w-full">
                     <div class="p-24">
