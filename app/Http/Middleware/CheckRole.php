@@ -18,14 +18,14 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, String $role)
     {
-        if ($role == 'user' && Auth::user()->role != 'user') {
+        if ($role == 'user' && Auth::user()->rule != 'user') {
             abort(403);
             // return redirect()->back()->with('error', 'Vous n\'êtes pas autorisé à effectuer cette opération');
         }
-        if ($role == 'deliverer' && Auth::user()->role != 'user') {
+        if ($role == 'deliverer' && Auth::user()->rule != 'deliverer') {
             abort(403);
         }
-        if ($role == 'eatery' && Auth::user()->role != 'user') {
+        if ($role == 'eatery' && Auth::user()->rule != 'eatery') {
             abort(403);
         }
         return $next($request);
