@@ -53,7 +53,7 @@ import { Link } from "@inertiajs/inertia-vue3";
             <Link
                 :href="route('eatery.index')"
                 :class="{ 'text-bouff-primaryone': $page.url === '/eatery' }"
-                ><i class="fi-sr-hat-chef"></i
+                ><i class="fi-sr-shop"></i
             ></Link>
         </li>
     </ul>

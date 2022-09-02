@@ -35,8 +35,9 @@ const pay = () => {
             paymentmethod: "momo",
             theme: "#f39719",
             sandbox: true,
+            address: form.address,
             email: "randomgail@gmail.com",
-            phone: "61000000",
+            phone: form.phone,
         });
     } else {
         alert("Veuillez vous connecter a internet et ressayer !");
@@ -67,7 +68,7 @@ onUnmounted(() => {
         <div>
             <div class="flex w-full flex-col items-center p-1 space-y-3">
                 <div
-                    class="flex flex-row items-center px-4 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
+                    class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
                 >
                     <span class="w-[10%] flex items-center justify-center">
                         <i class="fi-sr-marker"></i>
@@ -76,21 +77,14 @@ onUnmounted(() => {
                         <h3 class="text-sm font-semibold">Localisation</h3>
                         <input
                             type="text"
-                            class="w-full bg-bouff-primarytree"
+                            v-model="form.address"
+                            class="w-full bg-bouff-primarytree outline-none"
                             placeholder="Cotonou, Serietei Karakura "
                         />
-                        <select name="localisation" id="" class="hidden">
-                            <option value="Cotonou, Marina" selected>
-                                Cotonou, Serietei Karakura
-                            </option>
-                            <option value="Cotonou, Marina">
-                                Porto-novo, Konoha
-                            </option>
-                        </select>
                     </div>
                 </div>
                 <div
-                    class="flex flex-row items-center px-4 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
+                    class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
                 >
                     <span class="w-[10%] flex items-center justify-center">
                         <i class="fi-sr-smartphone"></i>
@@ -99,18 +93,12 @@ onUnmounted(() => {
                         <h3 class="text-sm font-semibold">
                             Numéro de téléphone
                         </h3>
-                        <select
-                            name="localisation"
-                            id=""
-                            class="w-full bg-bouff-primarytree"
-                        >
-                            <option value="Cotonou, Marina" selected>
-                                +229 96 00 00 00
-                            </option>
-                            <option value="Cotonou, Marina">
-                                +229 48 15 26 55
-                            </option>
-                        </select>
+                        <input
+                            type="text"
+                            v-model="form.phone"
+                            class="w-full bg-bouff-primarytree outline-none"
+                            placeholder="Numéro de téléphone"
+                        />
                     </div>
                 </div>
             </div>

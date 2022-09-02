@@ -28,7 +28,7 @@ if (props.food) {
     <UserDashboard>
         <div class="px-6 pb-8">
             <div class="h-full space-y-6">
-               <!--  <div>
+                <!--  <div>
                     <h2
                         class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold"
                     >
@@ -62,24 +62,6 @@ if (props.food) {
                         </ul>
                     </div>
                 </div> -->
-                <div>
-                    <h2
-                        class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold"
-                    >
-                        RESTAURANT POPULAIRE
-                    </h2>
-                    <div class="flex items-center justify-center">
-                        <ul
-                            class="flex flex-row flex-wrap overflow-auto py-4 text-white gap-4"
-                        >
-                            <Eatery
-                                v-for="eatery in eateries"
-                                :key="eatery.id"
-                                :eatery="eatery"
-                            />
-                        </ul>
-                    </div>
-                </div>
                 <div>
                     <h2
                         class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold"

@@ -40,11 +40,9 @@ defineProps({
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >
-                        <div class="w-1/4">
-                            <i
-                                class="fi-sr-hat-chef text-7xl text-bouff-primaryone"
-                            ></i>
-                        </div>
+                        <i
+                            class="fi-sr-hat-chef text-7xl text-bouff-primaryone"
+                        ></i>
                         <span class="font-medium uppercase">Menu</span>
                     </div>
                 </Link>
@@ -52,11 +50,9 @@ defineProps({
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >
-                        <div class="w-1/4">
-                            <i
-                                class="fi-sr-document text-7xl text-bouff-primaryone"
-                            ></i>
-                        </div>
+                        <i
+                            class="fi-sr-document text-7xl text-bouff-primaryone"
+                        ></i>
                         <span class="font-medium uppercase">Commandes</span>
                     </div>
                 </Link>
@@ -64,11 +60,9 @@ defineProps({
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >
-                        <div class="w-1/4">
-                            <i
-                                class="fi-sr-stats text-7xl text-bouff-primaryone"
-                            ></i>
-                        </div>
+                        <i
+                            class="fi-sr-stats text-7xl text-bouff-primaryone"
+                        ></i>
                         <span class="font-medium uppercase">Statistique</span>
                     </div>
                 </Link>
@@ -76,11 +70,9 @@ defineProps({
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >
-                        <div class="w-1/4">
-                            <i
-                                class="fi-sr-hat-chef text-7xl text-bouff-primaryone"
-                            ></i>
-                        </div>
+                        <i
+                            class="fi-sr-shop text-7xl text-bouff-primaryone"
+                        ></i>
                         <span class="font-medium uppercase"
                             >Informations Compte</span
                         >
