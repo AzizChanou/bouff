@@ -22,7 +22,6 @@ class HomeController extends Controller
     public function index()
     {
         $eateries = Eatery::all();
-        //$foods = Food::all();
         $food_categories = FoodCategory::all();
 
         $foods = Eatery::join('food', 'eateries.id', 'food.eatery_id')

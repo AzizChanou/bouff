@@ -30,10 +30,10 @@ Route::inertia('/about', 'Infos/About')
 Route::inertia('/faqs', 'Infos/Faqs')
     ->name('faqs');
 
-Route::inertia('/CGU', 'Infos/Cgu')
+Route::inertia('/cgu', 'Infos/Cgu')
     ->name('cgu');
 
-Route::inertia('CGV', 'Infos/Cgv')
+Route::inertia('cgv', 'Infos/Cgv')
     ->name('cgv');
 
 require __DIR__ . '/auth.php';
