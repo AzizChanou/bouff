@@ -28,7 +28,9 @@ const toggle = function (source) {
     <Head :title="eatery.label" />
     <EateryDashboard>
         <div class="flex flex-col space-y-4 pb-8 h-full">
-            <div class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')] bg-cover">
+            <div
+                class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')] bg-cover"
+            >
                 <div class="bg-bouff-secondarytwo/20 relative w-full">
                     <div class="p-24">
                         <h2
@@ -129,7 +131,9 @@ const toggle = function (source) {
                             <td class="px-3 py-4 text-right">
                                 <Link
                                     :href="route('food.destroy', food.id)"
+                                    method="delete"
                                     class="font-medium text-white p-2 bg-red-500 rounded hover:bg-red-700 duration-500"
+                                    as="button"
                                     >Supprimer</Link
                                 >
                             </td>

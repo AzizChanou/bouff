@@ -9,8 +9,8 @@ defineProps({
 });
 
 const form = useForm({
-    phone: "69457894",
-    password: "password",
+    phone: "",
+    password: "",
     remember: false,
 });
 

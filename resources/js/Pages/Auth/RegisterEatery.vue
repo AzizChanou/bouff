@@ -11,18 +11,17 @@ const step = ref(0);
 const steps = [FirstStep, SecondStep, LastStep];
 
 const form = useForm({
-    name: "Abdoul",
-    surname: "Aziz",
-    address: "Gbedjromede",
-    phone: "97485124",
-    email: "azorbor@gmail.com",
-    label: "OLAOLA",
-    ifu: "02222124578",
-    rccm: "RG558323",
-    description:
-        "Lorem ipsum dolor sit amet consectur ipsum dolor sit amet consectur ipsum dolor sit amet consectur ipsum dolor sit amet consectur ipsum dolor sit amet consectur ",
-    password: "96152342",
-    password_confirmation: "96152342",
+    name: "",
+    surname: "",
+    address: "",
+    phone: "",
+    email: "",
+    label: "",
+    ifu: "",
+    rccm: "",
+    description: "",
+    password: "",
+    password_confirmation: "",
     terms: true,
 });
 
@@ -141,7 +140,6 @@ const nextStep = () => {
         </div>
 
         <form @submit.prevent="submit" class="max-w-xl">
-
             <Component :is="steps[step]" :formValues="form"></Component>
 
             <div class="flex flex-row items-center justify-between px-2 mt-2">
