@@ -48,7 +48,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'Nourriture rapide pour les petits creux',
         ]);
 
-        /*
         \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory(7)->create([
@@ -63,7 +62,6 @@ class DatabaseSeeder extends Seeder
                 ]);
             });
         });
-*/
         \App\Models\User::factory(3)->create([
             'rule' => 'deliverer'
         ])->each(function ($user) {

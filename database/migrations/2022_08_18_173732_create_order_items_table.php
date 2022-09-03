@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignUuid('order_id')->constrained();
-            $table->foreignUuid('food_id')->constrained();
+            $table->foreignUuid('food_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
