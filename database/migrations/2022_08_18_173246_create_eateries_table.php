@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('label');
             $table->string('ifu');
             $table->string('rccm');
-            $table->string('picture_path')->default("/storage/eatery/ok.jpg");
+            $table->string('picture_path')->default("/storage/eatery/eatery.png");
             $table->string('logo_path')->nullable();
             $table->boolean('status')->default(true);
             $table->string('description')->nullable();

@@ -8,7 +8,7 @@ defineProps({
 
 <template>
     <li
-        class="bg-[url('http://localhost:8000/storage/eatery/ok.jpg')] w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500"
+        class="bg-[url('http://localhost:8000/storage/eatery/eatery.png')] w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500"
     >
         <Link
             :href="route('eatery.show', eatery.id)"

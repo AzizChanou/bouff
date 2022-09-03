@@ -37,20 +37,20 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Plat',
+            'name' => 'Appéritif',
             'category_logo_path' => 'boisson.png',
             'description' => 'Boisson liquide accompagnants tout mets',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Res',
+            'name' => 'Résistance',
             'category_logo_path' => 'snack.png',
-            'description' => 'Nourriture rapide pour les petits creux',
+            'description' => 'Nourriture plein pour les petits creux',
         ]);
 
-        \App\Models\User::factory(10)->create();
+      /*   \App\Models\User::factory(2)->create();
 
-        \App\Models\User::factory(7)->create([
+        \App\Models\User::factory(3)->create([
             'rule' => 'eatery'
         ])->each(function ($user) {
             Eatery::factory()->create([
@@ -61,7 +61,8 @@ class DatabaseSeeder extends Seeder
                     'eatery_id' => $eatery->id,
                 ]);
             });
-        });
+        }); */
+
         \App\Models\User::factory(3)->create([
             'rule' => 'deliverer'
         ])->each(function ($user) {
