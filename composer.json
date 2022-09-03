@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "cyrildewit/eloquent-viewable": "^6.1",
+        "fakerphp/faker": "^1.9.1",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.3",
         "kkiapay/kkiapay-php": "dev-master",
@@ -17,8 +18,8 @@
         "laravel/sanctum": "^2.8",
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.7",
-        "tightenco/ziggy": "^1.0",
-        "fakerphp/faker": "^1.9.1"
+        "silviolleite/laravelpwa": "^2.0",
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

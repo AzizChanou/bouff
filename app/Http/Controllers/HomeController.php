@@ -22,8 +22,11 @@ class HomeController extends Controller
     public function index()
     {
         $eateries = Eatery::all();
-        $foods = Food::all();
+        //$foods = Food::all();
         $food_categories = FoodCategory::all();
+
+        $foods = Food::join('eateries', 'food.eatery_id', 'eateries.id')
+            ->get();
 
         return  Inertia::render('Home/Index', [
             'eateries' => $eateries,

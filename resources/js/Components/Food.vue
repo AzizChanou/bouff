@@ -24,6 +24,9 @@ const cartStore = useCartStore();
         >
             {{ food.name }}
         </div>
+        <div class="flex flex-col truncate text-gray-600 font-thin m-1 px-2">
+            {{ food.label }} - {{ food.address }}
+        </div>
         <div
             class="flex flex-row items-center justify-between text-bouff-secondarytwo text-sm m-1 px-2"
         >

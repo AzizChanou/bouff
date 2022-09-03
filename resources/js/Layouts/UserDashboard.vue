@@ -22,7 +22,7 @@ import MobileOperationSection from "@/Components/MobileOperationSection.vue";
             <MobileOperationSection />
 
             <div
-                class="w-full md:w-[66%] lg:w-[60%] border-x-2 h-full overflow-y-auto space-y-6 pt-6 pb-24 md:pb-0"
+                class="w-full md:w-[66%] lg:w-[60%] border-x-2 h-full overflow-y-auto space-y-6 pb-24 md:pb-0"
             >
                 <FlashMessage />
                 <slot />
