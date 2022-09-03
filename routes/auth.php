@@ -78,6 +78,7 @@ Route::middleware('auth')->group(function () {
 
     Route::group(['middleware' => 'checkRole:deliverer'], function () {
         Route::resource('deliverer', DelivererController::class);
+        Route::resource('user', UserController::class)->except('create', 'store');
         Route::get('order/deliverer', [OrderController::class, 'deliverer'])
             ->name('order.deliverer');
         Route::get('order/treateddeliverer', [OrderController::class, 'treateddeliverer'])

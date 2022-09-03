@@ -12,41 +12,51 @@ import { Link } from "@inertiajs/inertia-vue3";
         <li>
             <Link
                 :href="route('order.deliverer')"
-                :class="{ 'text-bouff-primaryone': $page.url === '/' }"
-                ><i class="fi-sr-home"></i
+                :class="{
+                    'text-bouff-primaryone': $page.url === '/order/deliverer',
+                }"
+                ><i class="fi-sr-document"></i
             ></Link>
         </li>
         <li>
             <Link
-                :href="route('home.treateddeliverer')"
-                :class="{ 'text-bouff-primaryone': $page.url === '/' }"
-                ><i class="fi-sr-home"></i
+                :href="route('order.treateddeliverer')"
+                :class="{
+                    'text-bouff-primaryone':
+                        $page.url === '/order/treadteddeliverer',
+                }"
+                ><i class="fi-sr-assept-document"></i
             ></Link>
         </li>
         <li>
             <Link
                 :href="route('user.index')"
-                :class="{ 'text-bouff-primaryone': $page.url === '/' }"
-                ><i class="fi-sr-home"></i
+                :class="{ 'text-bouff-primaryone': $page.url === '/user' }"
+                ><i class="fi-sr-user"></i
             ></Link>
         </li>
     </ul>
     <ul
-        v-if="$page.props.auth.user && $page.props.auth.user.rule === 'eatery'"
+        v-else-if="$page.props.auth.user && $page.props.auth.user.rule === 'eatery'"
         class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
     >
         <li>
             <Link
                 :href="route('order.eatery')"
-                :class="{ 'text-bouff-primaryone': $page.url === '/order/eatery' }"
+                :class="{
+                    'text-bouff-primaryone': $page.url === '/order/eatery',
+                }"
                 ><i class="fi-sr-document"></i
             ></Link>
         </li>
         <li>
             <Link
                 :href="route('order.treatedeatery')"
-                :class="{ 'text-bouff-primaryone': $page.url === '/order/treatedeatery' }"
-                ><i class=" fi-sr-assept-document"></i
+                :class="{
+                    'text-bouff-primaryone':
+                        $page.url === '/order/treatedeatery',
+                }"
+                ><i class="fi-sr-assept-document"></i
             ></Link>
         </li>
         <li>

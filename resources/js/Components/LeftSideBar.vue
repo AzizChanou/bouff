@@ -72,7 +72,7 @@ const currentYear = new Date().getFullYear();
                     </li>
                 </ul>
                 <ul
-                    v-if="
+                    v-else-if="
                         $page.props.auth.user &&
                         $page.props.auth.user.rule === 'eatery'
                     "
@@ -110,7 +110,7 @@ const currentYear = new Date().getFullYear();
                     </li>
                 </ul>
                 <ul
-                    v-if="
+                    v-else-if="
                         $page.props.auth.user &&
                         $page.props.auth.user.rule === 'deliverer'
                     "
@@ -118,7 +118,20 @@ const currentYear = new Date().getFullYear();
                 >
                     <li>
                         <Link
-                            :href="route('deliverer.index')"
+                            :href="route('user.index')"
+                            as="a"
+                            :class="{
+                                'font-bold text-bouff-primaryone':
+                                    $page.url === '/user',
+                            }"
+                            class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
+                            ><i class="fi-sr-user"></i>
+                            <span class="hidden lg:flex">Profil</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            :href="route('order.deliverer')"
                             as="a"
                             :class="{
                                 'font-bold text-bouff-primaryone':
@@ -126,9 +139,8 @@ const currentYear = new Date().getFullYear();
                                     $page.url.startsWith('/food'),
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
-                        >
-                            <i class="fi-sr-document"></i>
-                            <span class="hidden lg:flex">Restaurant</span>
+                            ><i class="fi-sr-document"></i>
+                            <span class="hidden lg:flex">Commandes</span>
                         </Link>
                     </li>
                     <li>
@@ -140,12 +152,10 @@ const currentYear = new Date().getFullYear();
                                     $page.url === '/order/deliverer',
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
-                        >
-                            <i class="fi-sr-document"></i>
+                            ><i class="fi-sr-assept-document"></i>
                             <span class="hidden lg:flex">Commandes</span>
                         </Link>
                     </li>
-                    <li></li>
                 </ul>
                 <ul class="space-y-12 flex flex-col">
                     <li>
