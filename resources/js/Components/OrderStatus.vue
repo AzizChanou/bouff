@@ -19,7 +19,7 @@ defineProps({
     </span>
     <span
         v-if="state === 'Retrieve'"
-        class="bg-bouff-secondarytwo rounded-md whitespace-nowrap inline px-3 py-2 font-semibold text-white"
+        class="bg-bouff-secondaryone rounded-md whitespace-nowrap inline px-3 py-2 font-semibold text-white"
     >
         Récupérer
     </span>

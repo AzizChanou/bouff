@@ -23,9 +23,9 @@ return new class extends Migration
             $table->enum('status', ['Treatment', 'Preparation', 'Retrieve', 'Delivered'])->default('Treatment');
             $table->timestamps();
 
-            $table->foreignUuid('user_id')->constrained();
-            $table->foreignUuid('eatery_id')->constrained();
-            $table->foreignUuid('deliverer_id')->nullable()->constrained();
+            $table->foreignUuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignUuid('eatery_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignUuid('deliverer_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

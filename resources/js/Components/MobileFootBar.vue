@@ -23,9 +23,18 @@ import { Link } from "@inertiajs/inertia-vue3";
                 :href="route('order.treateddeliverer')"
                 :class="{
                     'text-bouff-primaryone':
-                        $page.url === '/order/treadteddeliverer',
+                        $page.url === '/order/treateddeliverer',
                 }"
                 ><i class="fi-sr-assept-document"></i
+            ></Link>
+        </li>
+        <li>
+            <Link
+                :href="route('qrcode')"
+                :class="{
+                    'text-bouff-primaryone': $page.url === '/qrcode',
+                }"
+                ><i class="fi-sr-camera"></i
             ></Link>
         </li>
         <li>
@@ -37,7 +46,9 @@ import { Link } from "@inertiajs/inertia-vue3";
         </li>
     </ul>
     <ul
-        v-else-if="$page.props.auth.user && $page.props.auth.user.rule === 'eatery'"
+        v-else-if="
+            $page.props.auth.user && $page.props.auth.user.rule === 'eatery'
+        "
         class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
     >
         <li>

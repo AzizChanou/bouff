@@ -17,7 +17,7 @@ const currentYear = new Date().getFullYear();
             <ul class="h-full divide-y">
                 <OrderDeliverer
                     v-for="order in orders"
-                    :retrieve="true"
+                    :accepted="true"
                     :order="order"
                     :key="order.id"
                 />

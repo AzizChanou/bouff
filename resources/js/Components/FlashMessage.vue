@@ -62,7 +62,6 @@ export default {
         "
         class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50"
     >
-        >
         <div
             class="flex items-center justify-between max-w-3xl bg-red-500 rounded"
         >

@@ -68,8 +68,6 @@ class OrderController extends Controller
         $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.eatery_id', Auth::user()->eatery->id)
             ->where('orders.status_payment', true)
-            ->where('orders.status', 'Treatment')
-            ->orWhere('orders.status', 'Preparation')
             ->join('food', 'food.id', 'order_items.food_id')
             ->get();
 
@@ -78,11 +76,12 @@ class OrderController extends Controller
         $orders = [];
 
         for ($i = 0; $i < count($getOrders); $i++) {
-            if ($getOrders[$i]->status_payment) {
+            if ($getOrders[$i]->status_payment && ($getOrders[$i]->status === 'Treatment' || $getOrders[$i]->status === 'Preparation')) {
                 $order = [
                     'id' => $getOrders[$i]->id,
                     'phone' => $getOrders[$i]->phone,
                     'comment' => $getOrders[$i]->comment,
+                    'status_payment' => true,
                     'status' => $getOrders[$i]->status,
                     'total_amount' => $getOrders[$i]->total_amount,
                     'order_items' => []
@@ -90,13 +89,13 @@ class OrderController extends Controller
                 $orders[] = $order;
             }
         }
-
-        for ($i = 0; $i < count($getOrders); $i++) {
+        for ($i = 0; $i < count($orders); $i++) {
             for ($j = 0; $j < count($order_items); $j++) {
-                if ($order_items[$j]->order_id === $getOrders[$i]->id) {
+                if ($order_items[$j]->order_id === $orders[$i]['id']) {
                     array_push($orders[$i]['order_items'], [
                         'quantity' => $order_items[$j]->quantity,
                         'name' => $order_items[$j]->name,
+                        //dd($order_items[$j]->price),
                         'price' => $order_items[$j]->price,
                     ]);
                 }
@@ -173,15 +172,15 @@ class OrderController extends Controller
         $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.status_payment', true)
             ->where('orders.deliverer_id', null)
-            ->where('orders.status', 'Treatment')
-            ->orWhere('orders.status', 'Preparation')
+            ->where('orders.status', '<>', 'Retrieve')
+            ->where('orders.status', '<>', 'Delivered')
             ->join('food', 'food.id', 'order_items.food_id')
             ->get();
 
         $getOrders = Order::where('status_payment', true)
             ->where('deliverer_id', null)
-            ->where('status', 'Treatment')
-            ->orWhere('status', 'Preparation')
+            ->where('orders.status', '<>', 'Retrieve')
+            ->where('orders.status', '<>', 'Delivered')
             ->get();
 
         $orders = [];
@@ -293,6 +292,7 @@ class OrderController extends Controller
             $order =  Order::create([
                 'comment' => $request->comment,
                 'phone' => $request->phone,
+                'status_payment' => true,
                 'address' => $request->address,
                 'total_amount' =>  $totalPrice,
                 'user_id' => Auth::user()->id,
@@ -326,7 +326,7 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->status = 'Preparation';
         $order->save();
-        return redirect()->back()->with('success', 'Livraison prête');
+        return redirect()->back()->with('success', 'Commande prête');
     }
 
 
@@ -339,9 +339,13 @@ class OrderController extends Controller
     public function retrieve($id)
     {
         $order = Order::findOrFail($id);
-        $order->status = 'Retrieve';
-        $order->save();
-        return redirect()->back()->with('success', 'Commande récupérée');
+        if ($order->status === 'Preparation') {
+            $order->status = 'Retrieve';
+            $order->save();
+            return redirect()->back()->with('success', 'Commande récupérée');
+        } else {
+            return redirect()->back()->with('error', 'Commande pas encore prête');
+        }
     }
 
 
@@ -366,10 +370,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getorder($id)
+    public function reserve($id)
     {
         $order = Order::findOrFail($id);
-        $order->id = Auth::user()->deliverer->id;
+        $order->deliverer_id = Auth::user()->deliverer->id;
         $order->save();
         return redirect()->back()->with('success', 'Commande réservée');
     }

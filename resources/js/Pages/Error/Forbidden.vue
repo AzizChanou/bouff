@@ -16,7 +16,7 @@ defineProps({
                     <img src="../../../../public/assets/svg/err.svg" alt="" class="" />
                 </div>
                 <div class="text-4xl text-center">
-                    <h1>Acces interdit !</h1>
+                    <h1>Accès interdit !</h1>
                 </div>
             </div>
         </div>

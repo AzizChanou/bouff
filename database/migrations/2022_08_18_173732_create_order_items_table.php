@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedFloat('price');
             $table->timestamps();
 
-            $table->foreignUuid('order_id')->constrained();
+            $table->foreignUuid('order_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
             $table->foreignUuid('food_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
         });
     }

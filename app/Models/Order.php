@@ -19,7 +19,7 @@ class Order extends Model
         'phone',
         'address',
         'comment',
-        'satus_payment',
+        'status_payment',
         'taked',
         'status',
         'total_amount',

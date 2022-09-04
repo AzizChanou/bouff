@@ -3,7 +3,7 @@ import { useCartStore } from "@/store/cart";
 import { useModalStore } from "@/store/modal";
 import ButtonVue from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { onMounted, onUnmounted, reactive, ref } from "vue";
+import { onMounted, onUnmounted, watch } from "vue";
 import {
     openKkiapayWidget,
     addKkiapayListener,
@@ -21,6 +21,7 @@ const form = useForm({
     transactionid: "",
     account: "",
 });
+
 const submit = () => {
     form.post(route("order.store"));
 };
@@ -40,13 +41,16 @@ const pay = () => {
             phone: form.phone,
         });
     } else {
-        alert("Veuillez vous connecter a internet et ressayer !");
+        alert("Veuillez vous connecter à internet et ressayer !");
     }
 };
 
 const successHandler = (response) => {
     form.transactionid = response.transactionId;
     form.account = response.account;
+    if (response.transactionId) {
+        submit();
+    }
 };
 
 onMounted(() => {

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->timestamps();
 
-            $table->foreignUuid('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignUuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

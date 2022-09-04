@@ -64,9 +64,9 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 
     Route::get('/redirectAuthenticatedUser', [RedirectAuthenticatedUserController::class, 'home']);
+    Route::resource('user', UserController::class)->except('create', 'store');
 
     Route::group(['middleware' => 'checkRole:user'], function () {
-        Route::resource('user', UserController::class)->except('create', 'store');
         Route::get('order', [OrderController::class, 'user'])
             ->name('order.user');
         Route::post('order', [OrderController::class, 'store'])
@@ -78,16 +78,20 @@ Route::middleware('auth')->group(function () {
 
     Route::group(['middleware' => 'checkRole:deliverer'], function () {
         Route::resource('deliverer', DelivererController::class);
-        Route::resource('user', UserController::class)->except('create', 'store');
         Route::get('order/deliverer', [OrderController::class, 'deliverer'])
             ->name('order.deliverer');
         Route::get('order/treateddeliverer', [OrderController::class, 'treateddeliverer'])
             ->name('order.treateddeliverer');
         Route::get('order/retrieve/{order}', [OrderController::class, 'retrieve'])
             ->name('order.retrieve');
-        Route::get('order/getorder/{order}', [OrderController::class, 'getorder'])
-            ->name('order.getorder');
+        Route::get('order/reserve/{order}', [OrderController::class, 'reserve'])
+            ->name('order.reserve');
     });
+
+    Route::inertia('/qrcode', 'Orphan/Qrcode')
+        ->name('qrcode');
+    Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])
+        ->name('order.delivered');
 
 
     Route::group(['middleware' => 'checkRole:eatery'], function () {

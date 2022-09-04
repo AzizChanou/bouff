@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('cookingtime')->nullable();
             $table->timestamps();
 
-            $table->foreignUuid('user_id')->constrained();
+            $table->foreignUuid('user_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

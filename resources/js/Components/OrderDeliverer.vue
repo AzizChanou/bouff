@@ -36,7 +36,7 @@ defineProps({
                             </Link>
                             <Link
                                 v-else
-                                :href="route('order.getorder', order.id)"
+                                :href="route('order.reserve', order.id)"
                                 class="bg-bouff-secondarytwo whitespace-nowrap rounded-md inline px-3 py-2 font-semibold text-white"
                             >
                                 Accepter

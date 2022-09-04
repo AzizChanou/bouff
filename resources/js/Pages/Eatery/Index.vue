@@ -46,7 +46,7 @@ defineProps({
                         <span class="font-medium uppercase">Menu</span>
                     </div>
                 </Link>
-                <Link :href="route('order.eatery')" as="a">
+                <Link :href="route('order.treatedeatery')" as="a">
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >

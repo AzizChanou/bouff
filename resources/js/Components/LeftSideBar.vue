@@ -100,7 +100,8 @@ const currentYear = new Date().getFullYear();
                             as="a"
                             :class="{
                                 'font-bold text-bouff-primaryone':
-                                    $page.url === '/order/eatery',
+                                    $page.url === '/order/eatery' ||
+                                    $page.url === '/order/treatedeatery',
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
@@ -135,8 +136,7 @@ const currentYear = new Date().getFullYear();
                             as="a"
                             :class="{
                                 'font-bold text-bouff-primaryone':
-                                    $page.url.startsWith('/eatery') ||
-                                    $page.url.startsWith('/food'),
+                                    $page.url.startsWith('/order/deliverer'),
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                             ><i class="fi-sr-document"></i>
@@ -145,15 +145,15 @@ const currentYear = new Date().getFullYear();
                     </li>
                     <li>
                         <Link
-                            :href="route('order.deliverer')"
+                            :href="route('order.treateddeliverer')"
                             as="a"
                             :class="{
                                 'font-bold text-bouff-primaryone':
-                                    $page.url === '/order/deliverer',
+                                    $page.url === '/order/treateddeliverer',
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                             ><i class="fi-sr-assept-document"></i>
-                            <span class="hidden lg:flex">Commandes</span>
+                            <span class="hidden lg:flex">Récuperer</span>
                         </Link>
                     </li>
                 </ul>
