@@ -4,10 +4,10 @@ import AuthenticationLayout from "@/Layouts/Authentication.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
-    name: "Aziz",
-    phone: "69457894",
-    password: "password",
-    password_confirmation: "password",
+    name: "",
+    phone: "",
+    password: "",
+    password_confirmation: "",
     terms: false,
 });
 

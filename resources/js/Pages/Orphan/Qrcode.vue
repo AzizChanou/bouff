@@ -1,54 +1,71 @@
-<script setup>
+<script>
 import { Head } from "@inertiajs/inertia-vue3";
 import DelivererDashboard from "@/Layouts/DelivererDashboard.vue";
-import QrcodeStream from "vue-qrcode-reader";
+import { QrcodeStream } from "vue-qrcode-reader";
 
-const order = defineProps({
-    orders: Object,
-});
+export default {
+    data() {
+        return {
+            isValid: undefined,
+            camera: "auto",
+            result: null,
+        };
+    },
 
-const isValid = undefined;
-const camera = "auto";
-const result = null;
+    components: { Head, QrcodeStream, DelivererDashboard },
 
-const onInit = (promise) => {
-    promise.catch(console.error).then(resetValidationState);
+    computed: {
+        validationPending() {
+            return this.isValid === undefined && this.camera === "off";
+        },
+
+        validationSuccess() {
+            return this.isValid === true;
+        },
+
+        validationFailure() {
+            return this.isValid === false;
+        },
+    },
+
+    methods: {
+        onInit(promise) {
+            promise.catch(console.error).then(this.resetValidationState);
+        },
+
+        resetValidationState() {
+            this.isValid = undefined;
+        },
+
+        async onDecode(content) {
+            this.result = content;
+            this.turnCameraOff();
+
+            // pretend it's taking really long
+            await this.timeout(3000);
+            this.isValid = content.startsWith("https");
+
+            // some more delay, so users have time to read the message
+            await this.timeout(2000);
+
+            this.turnCameraOn();
+        },
+
+        turnCameraOn() {
+            this.camera = "auto";
+        },
+
+        turnCameraOff() {
+            this.camera = "off";
+        },
+
+        timeout(ms) {
+            return new Promise((resolve) => {
+                window.setTimeout(resolve, ms);
+            });
+        },
+    },
 };
-
-const resetValidationState = () => {
-    isValid = undefined;
-};
-
-/*  const   async onDecode= (content) =>{
-      result = content
-      turnCameraOff()
-
-      // pretend it's taking really long
-      await timeout(3000)
-      isValid = content.startsWith('http')
-
-      // some more delay; so users have time to read the message
-      await timeout(2000)
-
-      turnCameraOn()
-    };
-*/
-
-const turnCameraOn = () => {
-    camera = "auto";
-};
-
-const turnCameraOff = () => {
-    camera = "off";
-};
-
-const timeout = (ms) => {
-    return new Promise((resolve) => {
-        window.setTimeout(resolve, ms);
-    });
-};
-
-const currentYear = new Date().getFullYear();
 </script>
 <template>
     <Head title="QR Code" />
@@ -57,7 +74,7 @@ const currentYear = new Date().getFullYear();
             <h1 class="text-2xl px-6 font-bold font-sans">QR Code</h1>
             <ul class="h-full divide-y">
                 <div>
-                    <p class="">
+                    <p class="decode-result">
                         Last result: <b>{{ result }}</b>
                     </p>
 

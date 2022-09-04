@@ -42,9 +42,6 @@ const submit = () => {
                     autocomplete="phone"
                     class="rounded-md mt-1 p-2 bg-bouff-primarytree border-0 outline-bouff-primaryone w-full"
                 />
-                <div class="text-sm text-red-600" v-if="form.errors.phone">
-                    {{ form.errors.phone }}
-                </div>
             </div>
 
             <div class="">
@@ -57,9 +54,6 @@ const submit = () => {
                     autocomplete="password"
                     class="rounded-md mt-1 p-2 bg-bouff-primarytree border-0 outline-bouff-primaryone w-full"
                 />
-                <div class="text-sm text-red-600" v-if="form.errors.password">
-                    {{ form.errors.password }}
-                </div>
             </div>
 
             <div class="flex space-x-3 px-1 items-center">
