@@ -26,6 +26,6 @@
         "kkiapay": "^1.0.7",
         "pinia": "^2.0.18",
         "vue-qrcode": "^2.0.0",
-        "vue-qrcode-reader": "^3.1.0"
+        "vue3-qrcode-reader": "^0.0.1"
     }
 }
