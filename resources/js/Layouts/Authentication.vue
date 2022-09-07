@@ -2,7 +2,6 @@
 import { Link } from "@inertiajs/inertia-vue3";
 import Logo from "@/Components/Logo.vue";
 import FlashMessage from "@/Components/FlashMessage.vue";
-
 </script>
 
 <template>
@@ -13,13 +12,13 @@ import FlashMessage from "@/Components/FlashMessage.vue";
             class="w-full h-full bg-bouff-primaryfor flex justify-center items-center"
         >
             <div class="space-y-6 flex flex-col items-center">
-                <Link href="/" class="flex justify-center">
+                <Link :href="route('home.index')" class="flex justify-center">
                     <Logo />
                 </Link>
                 <FlashMessage />
                 <slot />
                 <Link
-                    href="/"
+                    :href="route('home.index')"
                     class="text-bouff-primaryone hover:text-bouff-secondarytwo duration-300"
                     >Retour a l'accueil
                 </Link>

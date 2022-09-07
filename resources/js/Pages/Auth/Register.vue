@@ -99,7 +99,7 @@ const submit = () => {
                 <label for="accept" class="text-xs"
                     >J'ai lu et j'accepte les
                     <Link
-                        href="/CGU"
+                        :href="route('cgu')"
                         class="underline underline-offset-1 text-bouff-primaryone hover:text-bouff-secondarytwo duration-300"
                         >Conditions generales d'utilisations</Link
                     ></label

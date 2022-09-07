@@ -5,7 +5,9 @@ import { Link } from "@inertiajs/inertia-vue3";
 <template>
     <ul
         v-if="
-            $page.props.auth.user && $page.props.auth.user.rule === 'deliverer'
+            $page.props.auth &&
+            $page.props.auth.user &&
+            $page.props.auth.user.rule === 'deliverer'
         "
         class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
     >
@@ -47,7 +49,9 @@ import { Link } from "@inertiajs/inertia-vue3";
     </ul>
     <ul
         v-else-if="
-            $page.props.auth.user && $page.props.auth.user.rule === 'eatery'
+            $page.props.auth &&
+            $page.props.auth.user &&
+            $page.props.auth.user.rule === 'eatery'
         "
         class="w-full fixed bottom-0 flex border-y-2 h-14 md:hidden p-4 items-center flex-row bg-white shadow justify-around text-xl"
     >

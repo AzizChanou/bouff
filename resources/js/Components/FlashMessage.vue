@@ -21,7 +21,7 @@ export default {
 
 <template>
     <div
-        v-if="$page.props.flash.success && show"
+        v-if="$page.props.flash && $page.props.flash.success && show"
         class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50"
     >
         <div
@@ -56,6 +56,7 @@ export default {
     </div>
     <div
         v-if="
+            $page.props.flash &&
             ($page.props.flash.error ||
                 Object.keys($page.props.errors).length > 0) &&
             show

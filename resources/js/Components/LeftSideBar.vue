@@ -37,6 +37,7 @@ const currentYear = new Date().getFullYear();
                 </Link>
                 <ul
                     v-if="
+                        $page.props.auth &&
                         $page.props.auth.user &&
                         $page.props.auth.user.rule === 'user'
                     "
@@ -73,6 +74,7 @@ const currentYear = new Date().getFullYear();
                 </ul>
                 <ul
                     v-else-if="
+                        $page.props.auth &&
                         $page.props.auth.user &&
                         $page.props.auth.user.rule === 'eatery'
                     "
@@ -112,6 +114,7 @@ const currentYear = new Date().getFullYear();
                 </ul>
                 <ul
                     v-else-if="
+                        $page.props.auth &&
                         $page.props.auth.user &&
                         $page.props.auth.user.rule === 'deliverer'
                     "
@@ -188,7 +191,7 @@ const currentYear = new Date().getFullYear();
                     </li>
                     <li>
                         <Link
-                            v-if="$page.props.auth.user"
+                            v-if="$page.props.auth && $page.props.auth.user"
                             :href="route('logout')"
                             as="button"
                             method="post"
@@ -220,7 +223,7 @@ const currentYear = new Date().getFullYear();
                     as="a"
                     class="hover:text-bouff-primaryone duration-300"
                     :class="{
-                        'font-bold text-bouff-primaryone': $page.url === '/CGU',
+                        'font-bold text-bouff-primaryone': $page.url === '/cgu',
                     }"
                     >CGU</Link
                 >
@@ -230,7 +233,7 @@ const currentYear = new Date().getFullYear();
                     as="a"
                     class="hover:text-bouff-primaryone duration-300"
                     :class="{
-                        'font-bold text-bouff-primaryone': $page.url === '/CGV',
+                        'font-bold text-bouff-primaryone': $page.url === '/cgv',
                     }"
                     >CGV</Link
                 ></span

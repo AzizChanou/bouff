@@ -46,7 +46,7 @@ const showMenu = function () {
                         :href="route('cgu')"
                         :class="{
                             'font-bold text-bouff-primaryone':
-                                $page.url === '/CGU',
+                                $page.url === '/cgu',
                         }"
                         >CGU
                     </Link>
@@ -63,7 +63,7 @@ const showMenu = function () {
                 </li>
                 <li class="p-2">
                     <Link
-                        v-if="$page.props.auth.user"
+                        v-if="$page.props.auth && $page.props.auth.user"
                         :href="route('logout')"
                         method="post"
                         as="button"

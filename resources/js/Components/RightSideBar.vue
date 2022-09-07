@@ -14,6 +14,7 @@ const show = (components) => {
 <template>
     <div
         v-if="
+            $page.props.auth &&
             $page.props.auth.user &&
             ($page.props.auth.user.rule === 'deliverer' ||
                 $page.props.auth.user.rule === 'eatery')
