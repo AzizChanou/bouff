@@ -61,7 +61,7 @@ const submit = () => {
                         </div>
                     </div>
 
-                    <div class="">
+                    <div>
                         <label class="font-semibold" for="picture">Photo</label>
                         <input
                             class="w-full p-3 text-sm bg-bouff-primarytree/40 outline-bouff-primaryone rounded-md"
@@ -75,14 +75,6 @@ const submit = () => {
                         >
                             {{ form.errors.picture }}
                         </div>
-                        <!--  <progress
-                            v-if="form.progress"
-                            class="w-full p-3 text-sm text-white font-bold rounded-md"
-                            :value="form.progress.percentage"
-                            max="100"
-                        >
-                            {{ form.progress.percentage }}%
-                        </progress> -->
                     </div>
 
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">

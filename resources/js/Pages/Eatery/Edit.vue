@@ -29,7 +29,7 @@ const submit = () => {
     <Head title="Editer profil" />
     <EateryDashboard>
         <div class="flex flex-col w-full h-full space-y-6 px-6 py-8">
-            <h1 class="text-2xl font-bold font-sans">Profil</h1>
+            <h1 class="text-2xl font-bold font-sans">Restaurant</h1>
             <div class="w-full flex flex-col justify-between space-y-16">
                 <form
                     @submit.prevent="submit"

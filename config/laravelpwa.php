@@ -5,11 +5,10 @@ return [
         'name' => env('APP_NAME', 'BOUFF'),
         'short_name' => 'BOUFF',
         'start_url' => '/',
-        'background_color' => '#fffcf9',
+        'background_color' => '#ffffff',
         'theme_color' => '#f39719',
         'display' => 'standalone',
         'orientation' => 'any',
-        //'status_bar' => 'black',
         'icons' => [
             '72x72' => [
                 'path' => '/assets/logo/bouff-72x72.png',

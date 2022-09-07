@@ -59,9 +59,9 @@ class FoodController extends Controller
             'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
 
+        // $picture_path = "/storage" . '/' . $request->file('picture')->storeAs('food_picture', $picture_name, 'public');
         $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-        $picture_path = "/storage" . '/' . $request->file('picture')->storeAs('food_picture', $picture_name, 'public');
-
+        $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
         Food::create([
             'status' => true,
             'name' => $request->name,
@@ -69,7 +69,7 @@ class FoodController extends Controller
             'description' => $request->description,
             'eatery_id' => Auth::user()->eatery->id,
             'food_category_id' => $request->category,
-            'picture_path' => $picture_path,
+            'picture_path' => Storage::url($picture_path),
         ]);
 
         return redirect()->route('food.index')->with('success', 'Bouff cree avec succees !');
@@ -112,19 +112,24 @@ class FoodController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->picture);
         $food = Food::findOrFail($id);
         $request->validate([
             'name' => ['string', 'min:6', 'max:24'],
             'status' => ['boolean'],
-            //'picture_path' => ['string'],
+            'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
             'price' => ['min:3', 'max:12'],
             'description' => ['string'],
         ]);
 
+        $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
+        $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
+
         $food->name = $request->name;
         $food->price = $request->price;
+        $food->picture_path = Storage::url($picture_path);
         $food->description = $request->description;
-        $food->category_id = $request->category_id;
+        $food->food_category_id = $request->category_id;
         $food->save();
 
         return redirect()->route('food.index')->with('success', 'Bouff mise a jour avec succees !');

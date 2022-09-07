@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Storage;
 
 class EateryController extends Controller
 {
@@ -79,23 +79,23 @@ class EateryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $eatery = Eatery::findOrFail($id);
-
+        $user = User::findOrFail($id);
+        $eatery = $user->eatery;
         $request->validate([
             'name' => ['string', 'min:6', 'max:24'],
             'number' => ['string'],
             'ifu' => ['string'],
             'rccm' => ['string'],
             'picture_path' => ['string'],
-            'open_hour' => ['string'],
-            'closed_hour' => ['string'],
-            'cooking_time' => ['string'],
+            'open_hour' => ['number'],
+            'closed_hour' => ['number'],
+            'cooking_time' => ['number'],
             'description' => ['string', 'min:50', 'max:1024'],
-            'picture_path' => ['string'],
+            'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
 
         $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-        $picture_path = "/storage" . '/' . $request->file('picture')->storeAs('food_picture', $picture_name, 'public');
+        $picture_path = $request->file('picture')->storeAs('eatery', $picture_name, 'google');
 
         $eatery->update([
             'name' => $request['name'],
@@ -107,7 +107,7 @@ class EateryController extends Controller
             'closed_hour' => $request['closed_hour'],
             'cooking_time' => $request['cooking_time'],
             'description' => $request['description'],
-            'picture_path' => $picture_path,
+            'picture_path' => Storage::url($picture_path),
         ])->save();
 
         return redirect()->route('eatery.show')->with('success', 'Information.s mise.s a jour avec succees !');

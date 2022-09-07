@@ -8,7 +8,8 @@ defineProps({
 
 <template>
     <li
-        class="bg-[url('http://localhost:8000/storage/eatery/eatery.png')] w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500"
+        class="w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500'"
+        :class="'bg-[url(\'' + eatery.picture_path + '\')]'"
     >
         <Link
             :href="route('eatery.show', eatery.id)"
@@ -31,7 +32,7 @@ defineProps({
                     {{ eatery.description }}
                 </p>
             </div>
-            <div class="hidden flex-row justify-between  pt-2">
+            <div class="hidden flex-row justify-between pt-2">
                 <div class="space-x-1">
                     <i class="fi-sr-smile-beam"></i>
                     <span>89%</span>

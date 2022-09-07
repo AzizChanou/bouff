@@ -1,7 +1,7 @@
 {
     "name": "laravel/bouff",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Application de livraison de nourriture en ligne.",
     "keywords": [
         "framework",
         "laravel"
@@ -18,7 +18,9 @@
         "laravel/sanctum": "^2.8",
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.7",
+        "masbug/flysystem-google-drive-ext": "^2.2",
         "silviolleite/laravelpwa": "^2.0",
+        "spatie/laravel-google-cloud-storage": "^2.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

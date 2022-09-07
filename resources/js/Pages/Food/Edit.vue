@@ -13,13 +13,11 @@ const form = useForm({
     price: props.food.price,
     category_id: props.food.category_id,
     description: props.food.description,
-    picture: props.food.picture_path,
+    picture: null,
 });
 
 const submit = () => {
-    form.put(route("bouff.update", props.food.id), {
-        onFinish: () => form.reset(),
-    });
+    form.put(route("food.update", props.food.id));
 };
 </script>
 
@@ -71,14 +69,6 @@ const submit = () => {
                         >
                             {{ form.errors.picture }}
                         </div>
-                        <!--  <progress
-                            v-if="form.progress"
-                            class="w-full p-3 text-sm text-white font-bold rounded-md"
-                            :value="form.progress.percentage"
-                            max="100"
-                        >
-                            {{ form.progress.percentage }}%
-                        </progress> -->
                     </div>
 
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
