@@ -48,9 +48,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Nourriture plein pour les petits creux',
         ]);
 
-      /*   \App\Models\User::factory(2)->create();
+        \App\Models\User::factory(2)->create();
 
-        \App\Models\User::factory(3)->create([
+        /*   \App\Models\User::factory(3)->create([
             'rule' => 'eatery'
         ])->each(function ($user) {
             Eatery::factory()->create([
@@ -64,6 +64,15 @@ class DatabaseSeeder extends Seeder
         }); */
 
         \App\Models\User::factory(3)->create([
+            'rule' => 'deliverer'
+        ])->each(function ($user) {
+            Deliverer::factory()->create([
+                'user_id' => $user->id
+            ]);
+        });
+
+        \App\Models\User::factory()->create([
+            'phone' => '69457894',
             'rule' => 'deliverer'
         ])->each(function ($user) {
             Deliverer::factory()->create([
