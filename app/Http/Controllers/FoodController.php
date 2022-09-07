@@ -62,6 +62,7 @@ class FoodController extends Controller
         // $picture_path = "/storage" . '/' . $request->file('picture')->storeAs('food_picture', $picture_name, 'public');
         $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
         $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
+
         Food::create([
             'status' => true,
             'name' => $request->name,
@@ -117,17 +118,19 @@ class FoodController extends Controller
         $request->validate([
             'name' => ['string', 'min:6', 'max:24'],
             'status' => ['boolean'],
-            'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
+            // 'picture' => ['sometimes', 'mimes:jpeg,jpg,png', 'max:2048'],
             'price' => ['min:3', 'max:12'],
             'description' => ['string'],
         ]);
 
-        $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-        $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
+        if ($request->hasFile('picture')) {
+            $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
+            $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
+            $food->picture_path = Storage::url($picture_path);
+        }
 
         $food->name = $request->name;
         $food->price = $request->price;
-        $food->picture_path = Storage::url($picture_path);
         $food->description = $request->description;
         $food->food_category_id = $request->category_id;
         $food->save();

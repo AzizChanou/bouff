@@ -25,7 +25,7 @@ const cartStore = useCartStore();
             {{ food.name }}
         </div>
         <div class="flex flex-col truncate text-gray-600 font-thin m-1 px-2">
-            {{ food.label }} - {{ food.address }}
+            {{ food.label }} {{ food.address ? "-" + food.address : null }}
         </div>
         <div
             class="flex flex-row items-center justify-between text-bouff-secondarytwo text-sm m-1 px-2"
@@ -39,9 +39,5 @@ const cartStore = useCartStore();
                 <i class="fi-sr-shopping-cart-add"></i>
             </button>
         </div>
-        <!--
-        <div
-            class="flex font-bold items-center justify-between w-full m-1 p-2"
-        ></div> -->
     </li>
 </template>

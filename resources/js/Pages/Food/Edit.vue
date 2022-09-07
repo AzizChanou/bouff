@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import EateryDashboard from "@/Layouts/EateryDashboard.vue";
+import { Inertia } from "@inertiajs/inertia";
 
 const props = defineProps({
     food: Object,
@@ -9,6 +10,7 @@ const props = defineProps({
 });
 
 const form = useForm({
+    id: props.food.id,
     name: props.food.name,
     price: props.food.price,
     category_id: props.food.category_id,
@@ -17,7 +19,13 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.put(route("food.update", props.food.id));
+    Inertia.post(
+        route("food.update", {
+            id: form.id,
+            _method: "put", 
+        }),
+        form
+    );
 };
 </script>
 

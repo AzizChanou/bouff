@@ -27,7 +27,7 @@ const online = window.addEventListener("load", (event) => {
 
             <MobileNavMenu />
             <div
-                class="w-full md:w-[94%] lg:w-[86%] border-x-2 h-10/12 overflow-y-auto space-y-6 pb-24 md:pb-0"
+                class="w-full md:w-[94%] lg:w-[86%] border-x-2 overflow-y-auto space-y-6 pb-24 md:pb-0"
             >
                 <FlashMessage />
                 <slot />

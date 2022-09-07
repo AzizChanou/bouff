@@ -82,34 +82,28 @@ class EateryController extends Controller
         $user = User::findOrFail($id);
         $eatery = $user->eatery;
         $request->validate([
-            'name' => ['string', 'min:6', 'max:24'],
-            'number' => ['string'],
             'ifu' => ['string'],
+            'label' => ['string'],
             'rccm' => ['string'],
-            'picture_path' => ['string'],
-            'open_hour' => ['number'],
-            'closed_hour' => ['number'],
-            'cooking_time' => ['number'],
-            'description' => ['string', 'min:50', 'max:1024'],
-            'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'description' => ['string'],
+            //'picture' => ['sometimes', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
 
-        $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-        $picture_path = $request->file('picture')->storeAs('eatery', $picture_name, 'google');
+        if ($request->hasFile('picture')) {
+            $picture_name = Auth::user()->eatery->id . '_' . $request->label . '.' . $request->file('picture')->extension();
+            $picture_path = $request->file('picture')->storeAs('eatery', $picture_name, 'google');
+            $eatery->picture_path = Storage::url($picture_path);
+        }
 
-        $eatery->update([
-            'name' => $request['name'],
-            'number' => $request['number'],
-            'ifu' => $request['ifu'],
-            'rccm' => $request['rccm'],
-            'picture_path' => $request['picture_path'],
-            'open_hour' => $request['open_hour'],
-            'closed_hour' => $request['closed_hour'],
-            'cooking_time' => $request['cooking_time'],
-            'description' => $request['description'],
-            'picture_path' => Storage::url($picture_path),
-        ])->save();
+        $eatery->label = $request['label'];
+        $eatery->ifu = $request['ifu'];
+        $eatery->rccm = $request['rccm'];
+        $eatery->open_hour = $request['open_hour'];
+        $eatery->closed_hour = $request['closed_hour'];
+        $eatery->cookingtime = $request['cooking_time'];
+        $eatery->description = $request['description'];
+        $eatery->save();
 
-        return redirect()->route('eatery.show')->with('success', 'Information.s mise.s a jour avec succees !');
+        return redirect()->route('eatery.index')->with('success', 'Information.s mise.s a jour avec succees !');
     }
 }

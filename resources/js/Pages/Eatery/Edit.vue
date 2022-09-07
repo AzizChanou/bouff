@@ -1,6 +1,7 @@
 <script setup>
 import { Head, useForm } from "@inertiajs/inertia-vue3";
 import EateryDashboard from "@/Layouts/EateryDashboard.vue";
+import { Inertia } from "@inertiajs/inertia";
 
 const props = defineProps({
     eatery: Object,
@@ -11,7 +12,7 @@ const form = useForm({
     label: props.eatery.label,
     ifu: props.eatery.ifu,
     rccm: props.eatery.rccm,
-    picture: props.eatery.picture_path,
+    picture: null,
     description: props.eatery.description,
     cookingtime: props.eatery.cookingtime,
     open_hour: props.eatery.open_hour,
@@ -19,10 +20,15 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.put(route("eatery.update", form.id), {
-        onSuccess: () => form.reset("password"),
-    });
+    Inertia.post(
+        route("eatery.update", {
+            eatery: form.id,
+            _method: "put",
+        }),
+        form
+    );
 };
+
 </script>
 
 <template>
@@ -115,7 +121,6 @@ const submit = () => {
                             type="text"
                             id="description"
                             v-model="form.description"
-                            required
                             autocomplete="description"
                             class="rounded-md mt-1 p-2 bg-bouff-primarytree border-0 outline-bouff-primaryone w-full"
                         />
@@ -126,14 +131,12 @@ const submit = () => {
                             {{ form.errors.description }}
                         </div>
                     </div>
-                    <div>
+                    <!--   <div>
                         <label for="cookingtime" class="">Cookingtime</label>
                         <input
                             type="text"
                             id="cookingtime"
                             v-model="form.cookingtime"
-                            required
-                            autocomplete="cookingtime"
                             class="rounded-md mt-1 p-2 bg-bouff-primarytree border-0 outline-bouff-primaryone w-full"
                         />
                         <div
@@ -144,13 +147,11 @@ const submit = () => {
                         </div>
                     </div>
                     <div>
-                        <label for="open_hour" class="">open_hour</label>
+                        <label for="open_hour" class="">Heure d'ouverture</label>
                         <input
                             type="text"
                             id="open_hour"
                             v-model="form.open_hour"
-                            required
-                            autocomplete="open_hour"
                             class="rounded-md mt-1 p-2 bg-bouff-primarytree border-0 outline-bouff-primaryone w-full"
                         />
                         <div
@@ -161,13 +162,11 @@ const submit = () => {
                         </div>
                     </div>
                     <div>
-                        <label for="closed_hour" class="">closed_hour</label>
+                        <label for="closed_hour" class="">Heure de fermeture</label>
                         <input
                             type="text"
                             id="closed_hour"
                             v-model="form.closed_hour"
-                            required
-                            autocomplete="closed_hour"
                             class="rounded-md mt-1 p-2 bg-bouff-primarytree border-0 outline-bouff-primaryone w-full"
                         />
                         <div
@@ -176,7 +175,7 @@ const submit = () => {
                         >
                             {{ form.errors.closed_hour }}
                         </div>
-                    </div>
+                    </div> -->
                     <button
                         type="submit"
                         :disabled="form.processing"

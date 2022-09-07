@@ -1,16 +1,18 @@
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3";
 
-defineProps({
+const props = defineProps({
     eatery: Object,
 });
+
+const classN =
+    "w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500 bg-[url('" +
+    props.eatery.picture_path +
+    "')]";
 </script>
 
 <template>
-    <li
-        class="w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500'"
-        :class="'bg-[url(\'' + eatery.picture_path + '\')]'"
-    >
+    <li :class="classN">
         <Link
             :href="route('eatery.show', eatery.id)"
             class="bg-bouff-secondaryone/40 w-full h-full p-2 rounded-xl flex flex-col justify-between"
@@ -18,8 +20,8 @@ defineProps({
             <div class="flex flex-row justify-between pb-2">
                 <span class="font-medium">{{
                     eatery.address ? eatery.address : " "
-                }}</span
-                ><span
+                }}</span>
+                <span
                     class="bg-bouff-primaryone px-2 py-1 text-white rounded-full font-medium"
                     >{{ eatery.status ? "Ouvert" : "Ferme" }}</span
                 >
