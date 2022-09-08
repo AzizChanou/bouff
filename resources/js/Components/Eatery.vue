@@ -13,41 +13,50 @@ const classN =
 
 <template>
     <li :class="classN">
-        <Link
-            :href="route('eatery.show', eatery.id)"
-            class="bg-bouff-secondaryone/40 w-full h-full p-2 rounded-xl flex flex-col justify-between"
+        <div
+            class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
         >
-            <div class="flex flex-row justify-between pb-2">
-                <span class="font-medium">{{
-                    eatery.address ? eatery.address : " "
-                }}</span>
-                <span
-                    class="bg-bouff-primaryone px-2 py-1 text-white rounded-full font-medium"
-                    >{{ eatery.status ? "Ouvert" : "Ferme" }}</span
-                >
-            </div>
-            <div class="text-center p-10">
-                <h3 class="text-2xl font-bold uppercase">
-                    {{ eatery.label }}
-                </h3>
-                <p class="text-sm">
-                    {{ eatery.description }}
-                </p>
-            </div>
-            <div class="hidden flex-row justify-between pt-2">
-                <div class="space-x-1">
-                    <i class="fi-sr-smile-beam"></i>
-                    <span>89%</span>
+            <img
+                class="object-cover object-top w-full h-48"
+                :src="eatery.picture_path"
+                alt="Flower and sky"
+            />
+            <Link
+                :href="route('eatery.show', eatery.id)"
+                class="absolute top-0 left-0 bg-bouff-secondaryone/40 w-full h-full p-2 rounded-xl flex flex-col justify-between"
+            >
+                <div class="flex flex-row justify-between pb-2">
+                    <span class="font-medium">{{
+                        eatery.address ? eatery.address : " "
+                    }}</span>
+                    <span
+                        class="bg-bouff-primaryone px-2 py-1 text-white rounded-full font-medium"
+                        >{{ eatery.status ? "Ouvert" : "Ferme" }}</span
+                    >
                 </div>
-                <div class="space-x-1">
-                    <i class="fi-sr-biking-mountain"></i>
-                    <span>12km</span>
+                <div class="text-center p-10">
+                    <h3 class="text-2xl font-bold uppercase">
+                        {{ eatery.label }}
+                    </h3>
+                    <p class="text-sm">
+                        {{ eatery.description }}
+                    </p>
                 </div>
-                <div class="space-x-1">
-                    <i class="fi-sr-clock"></i>
-                    <span>50min</span>
+                <div class="hidden flex-row justify-between pt-2">
+                    <div class="space-x-1">
+                        <i class="fi-sr-smile-beam"></i>
+                        <span>89%</span>
+                    </div>
+                    <div class="space-x-1">
+                        <i class="fi-sr-biking-mountain"></i>
+                        <span>12km</span>
+                    </div>
+                    <div class="space-x-1">
+                        <i class="fi-sr-clock"></i>
+                        <span>50min</span>
+                    </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     </li>
 </template>

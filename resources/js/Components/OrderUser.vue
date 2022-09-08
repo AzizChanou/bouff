@@ -1,5 +1,6 @@
 <script setup>
 import OrderStatus from "./OrderStatus.vue";
+import VueQrcode from "vue-qrcode";
 defineProps({
     order: Object,
 });
@@ -52,6 +53,17 @@ defineProps({
                         >{{ order_item.price }} CFA</span
                     >
                 </div>
+            </div>
+
+            <div class="flex items-center justify-center">
+                <VueQrcode
+                    :value="order.id"
+                    type="image/png"
+                    :width="10"
+                    :scale="5"
+                    :color="{ dark: 'blue', light: '#fff' }"
+                    :quality="1"
+                />
             </div>
         </details>
     </li>
