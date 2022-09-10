@@ -39,7 +39,7 @@ class HandleInertiaRequests extends Middleware
                 return [
                     'user' => $request->user() ? [
                         'rule' => $request->user()->rule,
-                    ] : 'null'
+                    ] : null
                 ];
             },
             'ziggy' => function () {

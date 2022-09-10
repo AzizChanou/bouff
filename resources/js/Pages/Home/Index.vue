@@ -70,7 +70,7 @@ if (props.food) {
                     </h2>
                     <div class="flex items-center justify-center">
                         <ul
-                            class="flex flex-row flex-wrap overflow-auto py-4 text-white gap-4"
+                            class="flex flex-row flex-wrap place-content-center py-4 text-white gap-4"
                         >
                             <Eatery
                                 v-for="eatery in eateries"

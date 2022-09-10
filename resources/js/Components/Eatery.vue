@@ -6,24 +6,20 @@ const props = defineProps({
 });
 
 const classN =
-    "w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500 bg-[url('" +
-    props.eatery.picture_path +
-    "')]";
+    "w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500";
 </script>
 
 <template>
     <li :class="classN">
-        <div
-            class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
-        >
+        <div class="relative overflow-visible rounded-xl shadow cursor-pointer">
             <img
-                class="object-cover object-top w-full h-48"
+                class="object-cover object-top w-full rounded-xl h-48"
                 :src="eatery.picture_path"
                 alt="Flower and sky"
             />
             <Link
                 :href="route('eatery.show', eatery.id)"
-                class="absolute top-0 left-0 bg-bouff-secondaryone/40 w-full h-full p-2 rounded-xl flex flex-col justify-between"
+                class="absolute top-0 left-0 bg-bouff-secondaryone/40 rounded-xl w-full h-full p-2 flex flex-col justify-between"
             >
                 <div class="flex flex-row justify-between pb-2">
                     <span class="font-medium">{{
@@ -35,14 +31,14 @@ const classN =
                     >
                 </div>
                 <div class="text-center p-10">
-                    <h3 class="text-2xl font-bold uppercase">
+                    <h3 class="text-2xl font-bold inline uppercase">
                         {{ eatery.label }}
                     </h3>
                     <p class="text-sm">
                         {{ eatery.description }}
                     </p>
                 </div>
-                <div class="hidden flex-row justify-between pt-2">
+                <div class="flex-row justify-between pt-2">
                     <div class="space-x-1">
                         <i class="fi-sr-smile-beam"></i>
                         <span>89%</span>

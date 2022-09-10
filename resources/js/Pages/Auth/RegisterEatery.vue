@@ -26,9 +26,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("register.eatery"), {
-        onFinish: () => form.reset(),
-    });
+    form.post(route("register.eatery"));
 };
 
 const previousStep = () => {

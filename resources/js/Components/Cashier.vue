@@ -166,12 +166,17 @@ onUnmounted(() => {
                 <ButtonVue
                     @click="pay()"
                     :disabled="
-                        cartStore.totalCart < 1 || $page.props.auth.user == null
+                        cartStore.totalCart < 1 ||
+                        $page.props.auth.user == null ||
+                        $page.props.auth.user === 'deliverer' ||
+                        $page.props.auth.user === 'eatery'
                     "
                     :class="{
                         'opacity-25':
                             cartStore.totalCart < 1 ||
-                            $page.props.auth.user == null,
+                            $page.props.auth.user == null ||
+                            $page.props.auth.user === 'deliverer' ||
+                            $page.props.auth.user === 'eatery',
                     }"
                     name="yes"
                     text="Passer commande"

@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Traits\UUID;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Eatery extends Model
+class Eatery extends Model implements Viewable
 {
-    use HasFactory, UUID;
+    use HasFactory, UUID, InteractsWithViews;
 
     /**
      * The attributes that are mass assignable.

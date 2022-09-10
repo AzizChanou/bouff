@@ -182,6 +182,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\GoogleServiceProvider::class,
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        //Arcanedev\LaravelLang\LaravelLangServiceProvider::class,
+
 
         /*
          * Package Service Providers...

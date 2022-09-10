@@ -103,7 +103,7 @@ import { Link } from "@inertiajs/inertia-vue3";
         <li>
             <Link
                 :href="route('order.user')"
-                :class="{ 'text-bouff-primaryone': $page.url === '/commandes' }"
+                :class="{ 'text-bouff-primaryone': $page.url === '/order' }"
                 ><i class="fi-sr-document"></i
             ></Link>
         </li>
