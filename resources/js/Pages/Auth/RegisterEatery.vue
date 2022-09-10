@@ -11,18 +11,17 @@ const step = ref(0);
 const steps = [FirstStep, SecondStep, LastStep];
 
 const form = useForm({
-    name: "AZERTY",
-    surname: "AZERTY",
-    address: "AZERTY",
-    phone: "96152342",
-    email: "a@yopmail.fr",
-    label: "AZERTY",
-    ifu: "23457647464734F",
-    rccm: "987654321AB",
-    description:
-        "L’odeur de la pâte chaude qui dore dans la crêpière, le jaune d’oeuf coulant sur le fromage fondu, les couleurs et parfums sucrés des confitures de toutes les sortes, les traces de sucre qui parsèment la grande table familiale... Pour la Chandeleur, régalez-vous avec des recettes faciles et gourmandes de crêpes sucrées et salées !",
-    password: "password",
-    password_confirmation: "password",
+    name: "",
+    surname: "",
+    address: "",
+    phone: "",
+    email: "",
+    label: "",
+    ifu: "",
+    rccm: "",
+    description: "",
+    password: "",
+    password_confirmation: "",
     terms: false,
 });
 
