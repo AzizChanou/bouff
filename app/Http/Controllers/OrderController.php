@@ -96,7 +96,6 @@ class OrderController extends Controller
                     array_push($orders[$i]['order_items'], [
                         'quantity' => $order_items[$j]->quantity,
                         'name' => $order_items[$j]->name,
-                        //dd($order_items[$j]->price),
                         'price' => $order_items[$j]->price,
                     ]);
                 }

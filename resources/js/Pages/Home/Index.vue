@@ -74,7 +74,7 @@ if (props.food) {
                     </h2>
                     <div class="flex justify-center items-center">
                         <ul
-                            class="flex overflow-x-scroll sm:flex-row sm:flex-wrap py-4 text-white gap-4"
+                            class="flex overflow-x-scroll  pl-2 md:pl-0 sm:flex-row sm:flex-wrap py-4 text-white gap-4"
                         >
                             <Food
                                 v-for="food in foods"
