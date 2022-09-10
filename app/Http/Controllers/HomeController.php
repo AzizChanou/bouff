@@ -24,6 +24,7 @@ class HomeController extends Controller
         $eateries = Eatery::all();
         $food_categories = FoodCategory::all();
 
+       // $foods = Food::all();
         $foods = Eatery::join('food', 'eateries.id', 'food.eatery_id')
             ->get();
 

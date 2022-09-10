@@ -23,7 +23,7 @@ export const useCartStore = defineStore("cart", {
         },
         totalCartTva() {
             return ((this.totalCartPrice + 500) + (this.totalCartPrice * 0.019));
-        },
+        }, 
     },
     actions: {
         addFoodToCart(nfood) {

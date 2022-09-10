@@ -82,14 +82,17 @@ export default {
                 >
                     {{ $page.props.flash.error }}
                 </div>
-                <div v-else class="py-4 text-white text-sm font-medium">
+                <div
+                    v-else
+                    class="py-4 text-white text-center text-sm font-medium"
+                >
                     <span v-if="Object.keys($page.props.errors).length === 1"
-                        >There is one form error.</span
+                        >Il y a une erreur de formulaire.</span
                     >
                     <span v-else
-                        >There are
-                        {{ Object.keys($page.props.errors).length }} form
-                        errors.</span
+                        >Il y a
+                        {{ Object.keys($page.props.errors).length }} erreurs de
+                        formulaire.</span
                     >
                 </div>
             </div>

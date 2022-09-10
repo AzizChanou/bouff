@@ -7,7 +7,9 @@ import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { createPinia } from 'pinia';
+import VueLazyload from 'vue-lazyload';
 
+//const loadimage = import('./assets/loading.gif');
 
 const pinia = createPinia();
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Bouff';
@@ -19,6 +21,14 @@ createInertiaApp({
         return createApp({ render: () => h(app, props) })
             .use(plugin)
             .use(pinia)
+            .use(VueLazyload, {
+                preLoad: 1.3,
+                //error: errorimage,
+                //loading: loadimage,
+                attempt: 2,
+                observer: true,
+                lazyComponent: true
+            })
             .use(ZiggyVue)
             .mount(el);
     },

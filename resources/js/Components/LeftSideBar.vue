@@ -135,6 +135,19 @@ const currentYear = new Date().getFullYear();
                     </li>
                     <li>
                         <Link
+                            :href="route('qrcode')"
+                            as="a"
+                            :class="{
+                                'text-bouff-primaryone':
+                                    $page.url === '/qrcode',
+                            }"
+                            class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
+                            ><i class="fi-sr-camera"></i>
+                            <span class="hidden lg:flex">QRCode</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
                             :href="route('order.deliverer')"
                             as="a"
                             :class="{

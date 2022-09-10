@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Eatery;
 use App\Models\Food;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -177,7 +178,15 @@ class OrderController extends Controller
             ->join('food', 'food.id', 'order_items.food_id')
             ->get();
 
-        $getOrders = Order::where('status_payment', true)
+        /*       $getOrders = Order::where('status_payment', true)
+            ->where('deliverer_id', null)
+            ->where('orders.status', '<>', 'Retrieve')
+            ->where('orders.status', '<>', 'Delivered')
+            ->join('eateries', 'orders.eatery_id', 'eateries.id')
+            ->get(); */
+
+        $getOrders = Eatery::join('orders', 'orders.eatery_id', 'eateries.id')
+            ->where('status_payment', true)
             ->where('deliverer_id', null)
             ->where('orders.status', '<>', 'Retrieve')
             ->where('orders.status', '<>', 'Delivered')
@@ -209,7 +218,6 @@ class OrderController extends Controller
                 }
             }
         }
-
         return Inertia::render('Order/Deliverer', [
             'orders' =>  $orders
         ]);
@@ -287,7 +295,10 @@ class OrderController extends Controller
 
         $totalPrice += (500 + ($totalPrice * 0.019));
 
-        $transaction =  $kkiapay->verifyTransaction('57CtXLQ7Q');
+        $transaction =  $kkiapay->verifyTransaction($request->transactionid);
+        /*  if ($transaction->statusCode === 400) {
+            return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
+        } else { */
         if ($transaction->status === 'SUCCESS' && $request->cart["totalCartTva"] == $totalPrice) {
             $order =  Order::create([
                 'comment' => $request->comment,
@@ -306,11 +317,11 @@ class OrderController extends Controller
                     'order_id' => $order->id,
                     'food_id' => $request->cart["cart"][$i]["food"]["id"]
                 ]);
-
-                return redirect()->back()->with('success', 'Commande effectuer !');
             }
-        } else {
-            return redirect()->back()->with('error', 'Commande non effectuer, veuillez reesayer !');
+            return redirect()->back()->with('success', 'Commande effectuée !');
+            /*  } else {
+                return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
+            } */
         }
     }
 
@@ -357,10 +368,15 @@ class OrderController extends Controller
      */
     public function delivered($id)
     {
-        $order = Order::findOrFail($id);
-        $order->status = 'Delivered';
-        $order->save();
-        return redirect()->back()->with('success', 'Commande livrée');
+        $codeId = substr($id, 7);
+        $order = Order::find($codeId);
+        if ($order === null) {
+            return redirect()->back()->with('error', 'Aucune commande ne correspond !');
+        } else {
+            $order->status = 'Delivered';
+            $order->save();
+            return redirect()->back()->with('success', 'Commande livrée');
+        }
     }
 
 

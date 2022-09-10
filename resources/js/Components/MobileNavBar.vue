@@ -76,6 +76,13 @@ export default {
         <button
             @click="showCashier()"
             class="relative flex items-center"
+            :class="{
+                hidden:
+                    $page.props.auth &&
+                    $page.props.auth.user &&
+                    ($page.props.auth.user.rule === 'deliverer' ||
+                        $page.props.auth.user.rule === 'eatery'),
+            }"
         >
             <i class="fi-sr-shopping-cart"></i>
             <span

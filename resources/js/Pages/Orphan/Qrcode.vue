@@ -2,6 +2,7 @@
 import { Head } from "@inertiajs/inertia-vue3";
 import DelivererDashboard from "@/Layouts/DelivererDashboard.vue";
 import { QrcodeStream } from "vue3-qrcode-reader";
+import { Inertia } from "@inertiajs/inertia";
 
 export default {
     data() {
@@ -37,6 +38,9 @@ export default {
         resetValidationState() {
             this.isValid = undefined;
         },
+        delivered() {
+            Inertia.get(route("order.delivered", this.result));
+        },
 
         async onDecode(content) {
             this.result = content;
@@ -44,11 +48,11 @@ export default {
 
             await this.timeout(1000);
 
-            this.isValid = content.startsWith(
-                "https://bouff.herokuapp.com/order/delivered/"
-            );
+            this.isValid = content.startsWith("bouff__");
 
-            let home = route("home.index");
+            if (this.isValid) {
+                this.delivered();
+            }
 
             this.turnCameraOn();
         },

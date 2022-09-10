@@ -14,7 +14,7 @@ const classN =
         <div class="relative overflow-hidden rounded-xl shadow cursor-pointer">
             <img
                 class="object-cover object-top w-full rounded-xl h-48"
-                :src="eatery.picture_path"
+                v-lazy="eatery.picture_path"
                 alt="Flower and sky"
             />
             <Link

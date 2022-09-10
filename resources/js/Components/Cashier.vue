@@ -69,78 +69,76 @@ onUnmounted(() => {
         <p class="">Aucune Bouff</p>
     </div>
     <div v-else class="flex flex-col h-[95%] justify-between">
-            <div class="flex w-full flex-col items-center p-1 space-y-3">
-                <div
-                    class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
-                >
-                    <span class="w-[10%] flex items-center justify-center">
-                        <i class="fi-sr-marker"></i>
-                    </span>
-                    <div class="w-full pl-2">
-                        <h3 class="text-sm font-semibold">Localisation</h3>
-                        <input
-                            type="text"
-                            v-model="form.address"
-                            class="w-full bg-bouff-primarytree outline-none"
-                            placeholder="Cotonou, Serietei Karakura "
-                        />
-                    </div>
-                </div>
-                <div
-                    class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
-                >
-                    <span class="w-[10%] flex items-center justify-center">
-                        <i class="fi-sr-smartphone"></i>
-                    </span>
-                    <div class="w-full pl-2">
-                        <h3 class="text-sm font-semibold">
-                            Numéro de téléphone
-                        </h3>
-                        <input
-                            type="text"
-                            v-model="form.phone"
-                            class="w-full bg-bouff-primarytree outline-none"
-                            placeholder="Numéro de téléphone"
-                        />
-                    </div>
+        <div class="flex w-full flex-col items-center p-1 space-y-3">
+            <div
+                class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
+            >
+                <span class="w-[10%] flex items-center justify-center">
+                    <i class="fi-sr-marker"></i>
+                </span>
+                <div class="w-full pl-2">
+                    <h3 class="text-sm font-semibold">Localisation</h3>
+                    <input
+                        type="text"
+                        v-model="form.address"
+                        class="w-full bg-bouff-primarytree outline-none"
+                        placeholder="Cotonou, Serietei Karakura "
+                    />
                 </div>
             </div>
-            <ul class="overflow-y-scroll h-full space-y-1 p-2">
-                <li
-                    v-for="cart in cartStore.getCart"
-                    :key="cart.food.id"
-                    class="flex items-start justify-between"
-                >
-                    <h3>
-                        {{ cart.food.name }}
-                        <span class="block text-xs text-bouff-primaryone"
-                            >à {{ cart.food.price }} CFA</span
+            <div
+                class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
+            >
+                <span class="w-[10%] flex items-center justify-center">
+                    <i class="fi-sr-smartphone"></i>
+                </span>
+                <div class="w-full pl-2">
+                    <h3 class="text-sm font-semibold">Numéro de téléphone</h3>
+                    <input
+                        type="text"
+                        v-model="form.phone"
+                        class="w-full bg-bouff-primarytree outline-none"
+                        placeholder="Numéro de téléphone"
+                    />
+                </div>
+            </div>
+        </div>
+        <ul class="overflow-y-scroll h-full space-y-1 p-2">
+            <li
+                v-for="cart in cartStore.getCart"
+                :key="cart.food.id"
+                class="flex items-start justify-between"
+            >
+                <h3>
+                    {{ cart.food.name }}
+                    <span class="block text-xs text-bouff-primaryone"
+                        >à {{ cart.food.price }} CFA</span
+                    >
+                </h3>
+                <div class="text-right">
+                    <span class="block"
+                        >{{ cart.quantity * cart.food.price }} CFA</span
+                    >
+                    <div class="text-white">
+                        <button
+                            @click="cartStore.removeFoodFromCart(cart.food)"
+                            class="px-1 bg-bouff-primaryone rounded-l-md hover:bg-bouff-secondarytwo duration-500"
                         >
-                    </h3>
-                    <div class="text-right">
-                        <span class="block"
-                            >{{ cart.quantity * cart.food.price }} CFA</span
+                            <i class="fi-sr-minus"></i>
+                        </button>
+                        <span class="text-bouff-secondarytwo p-2">{{
+                            cart.quantity
+                        }}</span>
+                        <button
+                            @click="cartStore.addFoodToCart(cart.food)"
+                            class="px-1 bg-bouff-primaryone rounded-r-md hover:bg-bouff-secondarytwo duration-500"
                         >
-                        <div class="text-white">
-                            <button
-                                @click="cartStore.removeFoodFromCart(cart.food)"
-                                class="px-1 bg-bouff-primaryone rounded-l-md hover:bg-bouff-secondarytwo duration-500"
-                            >
-                                <i class="fi-sr-minus"></i>
-                            </button>
-                            <span class="text-bouff-secondarytwo p-2">{{
-                                cart.quantity
-                            }}</span>
-                            <button
-                                @click="cartStore.addFoodToCart(cart.food)"
-                                class="px-1 bg-bouff-primaryone rounded-r-md hover:bg-bouff-secondarytwo duration-500"
-                            >
-                                <i class="fi-sr-plus"></i>
-                            </button>
-                        </div>
+                            <i class="fi-sr-plus"></i>
+                        </button>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </li>
+        </ul>
 
         <div class="flex flex-col space-y-2">
             <div class="flex flex-col space-y-2 p-2 border-y-2">
@@ -166,15 +164,15 @@ onUnmounted(() => {
                     :disabled="
                         cartStore.totalCart < 1 ||
                         $page.props.auth.user == null ||
-                        $page.props.auth.user === 'deliverer' ||
-                        $page.props.auth.user === 'eatery'
+                        $page.props.auth.user.rule === 'deliverer' ||
+                        $page.props.auth.user.rule === 'eatery'
                     "
                     :class="{
                         'opacity-25':
                             cartStore.totalCart < 1 ||
                             $page.props.auth.user == null ||
-                            $page.props.auth.user === 'deliverer' ||
-                            $page.props.auth.user === 'eatery',
+                            $page.props.auth.user.rule === 'deliverer' ||
+                            $page.props.auth.user.rule === 'eatery',
                     }"
                     name="yes"
                     text="Passer commande"

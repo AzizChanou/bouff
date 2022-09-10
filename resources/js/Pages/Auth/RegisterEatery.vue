@@ -26,7 +26,9 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("register.eatery"));
+    form.post(route("register.eatery"), {
+        onFinish: () => form.reset("password", "password_confirmation"),
+    });
 };
 
 const previousStep = () => {
