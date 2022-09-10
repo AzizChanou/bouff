@@ -33,7 +33,7 @@ defineProps({
                 <div
                     class="bg-bouff-secondarytwo/30 absolute top-0 left-0 w-full"
                 >
-                    <div class="p-24">
+                    <div class="p-[5.89rem] md:p-24">
                         <h2
                             class="text-white font-medium text-center text-3xl uppercase"
                         >
@@ -42,7 +42,7 @@ defineProps({
                     </div>
                 </div>
             </div>
-            <div class="p-4 grid sm:grid-cols-2 gap-6">
+            <div class="p-4 grid grid-cols-2 gap-2 md:gap-6">
                 <Link :href="route('food.index')" as="a">
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
@@ -50,7 +50,9 @@ defineProps({
                         <i
                             class="fi-sr-hat-chef text-7xl text-bouff-primaryone"
                         ></i>
-                        <span class="font-medium uppercase">Menu</span>
+                        <span class="font-medium text-center uppercase"
+                            >Menu</span
+                        >
                     </div>
                 </Link>
                 <Link :href="route('order.treatedeatery')" as="a">
@@ -60,7 +62,9 @@ defineProps({
                         <i
                             class="fi-sr-document text-7xl text-bouff-primaryone"
                         ></i>
-                        <span class="font-medium uppercase">Commandes</span>
+                        <span class="font-medium text-center uppercase"
+                            >Commandes</span
+                        >
                     </div>
                 </Link>
                 <Link :href="route('eatery.stats')" as="a">
@@ -70,7 +74,9 @@ defineProps({
                         <i
                             class="fi-sr-stats text-7xl text-bouff-primaryone"
                         ></i>
-                        <span class="font-medium uppercase">Statistique</span>
+                        <span class="font-medium text-center uppercase"
+                            >Statistique</span
+                        >
                     </div>
                 </Link>
                 <Link :href="route('eatery.edit', eatery.id)" as="a">
@@ -80,7 +86,7 @@ defineProps({
                         <i
                             class="fi-sr-shop text-7xl text-bouff-primaryone"
                         ></i>
-                        <span class="font-medium uppercase"
+                        <span class="font-medium text-center uppercase"
                             >Informations Compte</span
                         >
                     </div>

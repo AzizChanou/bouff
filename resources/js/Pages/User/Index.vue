@@ -10,7 +10,9 @@ defineProps({
 <template>
     <Head :title="user.name" />
     <UserDashboard>
-        <div class="flex flex-col w-full h-full space-y-6 px-6 py-8">
+        <div
+            class="flex flex-col w-full h-full overflow-scroll space-y-6 px-6 py-8"
+        >
             <h1 class="text-2xl font-bold font-sans">Profil</h1>
             <div class="w-full flex flex-col justify-between space-y-16">
                 <div class="flex flex-col items-center space-y-4">

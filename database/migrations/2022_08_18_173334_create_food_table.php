@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignUuid('eatery_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('food_category_id')->constrained();
+            $table->foreignId('food_category_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

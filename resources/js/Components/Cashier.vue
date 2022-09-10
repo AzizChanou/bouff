@@ -69,7 +69,6 @@ onUnmounted(() => {
         <p class="">Aucune Bouff</p>
     </div>
     <div v-else class="flex flex-col h-[95%] justify-between">
-        <div>
             <div class="flex w-full flex-col items-center p-1 space-y-3">
                 <div
                     class="flex flex-row items-center px-2 py-1 flex-nowrap bg-bouff-primarytree w-full rounded"
@@ -106,7 +105,7 @@ onUnmounted(() => {
                     </div>
                 </div>
             </div>
-            <ul class="overflow-y-auto space-y-1 p-2">
+            <ul class="overflow-y-scroll h-full space-y-1 p-2">
                 <li
                     v-for="cart in cartStore.getCart"
                     :key="cart.food.id"
@@ -142,7 +141,6 @@ onUnmounted(() => {
                     </div>
                 </li>
             </ul>
-        </div>
 
         <div class="flex flex-col space-y-2">
             <div class="flex flex-col space-y-2 p-2 border-y-2">

@@ -5,7 +5,6 @@ import { Inertia } from "@inertiajs/inertia";
 
 const props = defineProps({
     food: Object,
-    eatery: Object,
     food_categories: Object,
 });
 
@@ -21,8 +20,8 @@ const form = useForm({
 const submit = () => {
     Inertia.post(
         route("food.update", {
-            id: form.id,
-            _method: "put", 
+            food: form.id,
+            _method: "put",
         }),
         form
     );

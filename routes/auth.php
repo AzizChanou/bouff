@@ -71,8 +71,6 @@ Route::middleware('auth')->group(function () {
             ->name('order.user');
         Route::post('order', [OrderController::class, 'store'])
             ->name('order.store');
-        Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])
-            ->name('order.delivered');
     });
 
 
@@ -87,6 +85,10 @@ Route::middleware('auth')->group(function () {
         Route::get('order/reserve/{order}', [OrderController::class, 'reserve'])
             ->name('order.reserve');
     });
+
+
+    Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])
+        ->name('order.delivered');
 
     Route::inertia('/qrcode', 'Orphan/Qrcode')
         ->name('qrcode');

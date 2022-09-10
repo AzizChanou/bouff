@@ -57,7 +57,10 @@ defineProps({
 
             <div class="flex items-center justify-center">
                 <VueQrcode
-                    :value="order.id"
+                    :value="
+                        'https://bouff.herokuapp.com/order/delivered/' +
+                        order.id
+                    "
                     type="image/png"
                     :width="10"
                     :scale="5"

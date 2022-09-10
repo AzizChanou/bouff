@@ -6,12 +6,12 @@ const props = defineProps({
 });
 
 const classN =
-    "w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] bg-cover shadow-md rounded-xl hover:scale-95 duration-500";
+    "w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] md:w-[calc(100%-1rem)] lg:w-[calc(50%-1rem)] shadow-md rounded-xl hover:scale-95 duration-500";
 </script>
 
 <template>
     <li :class="classN">
-        <div class="relative overflow-visible rounded-xl shadow cursor-pointer">
+        <div class="relative overflow-hidden rounded-xl shadow cursor-pointer">
             <img
                 class="object-cover object-top w-full rounded-xl h-48"
                 :src="eatery.picture_path"
@@ -38,7 +38,7 @@ const classN =
                         {{ eatery.description }}
                     </p>
                 </div>
-                <div class="flex-row justify-between pt-2">
+                <div class="hidden flex-row justify-between pt-2">
                     <div class="space-x-1">
                         <i class="fi-sr-smile-beam"></i>
                         <span>89%</span>

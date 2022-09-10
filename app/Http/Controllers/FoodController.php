@@ -94,12 +94,10 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        $eatery = User::findOrFail(Auth::user()->id)->eatery;
         $food = Food::findOrFail($id);
         $food_categories = FoodCategory::all();
         return Inertia::render('Food/Edit', [
             'food' => $food,
-            'eatery' => $eatery,
             'food_categories' => $food_categories,
         ]);
     }
@@ -113,7 +111,6 @@ class FoodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->picture);
         $food = Food::findOrFail($id);
         $request->validate([
             'name' => ['string', 'min:6', 'max:24'],

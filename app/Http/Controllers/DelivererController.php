@@ -17,8 +17,8 @@ class DelivererController extends Controller
     public function index()
     {
         $deliverer = Deliverer::join('users', 'users.id', 'deliverers.user_id')->find(Auth::user()->deliverer->id);
-        return Inertia::render('Deliverer/Index', [
-            'deliverer' => $deliverer,
+        return Inertia::render('User/Index', [
+            'user' => $deliverer,
         ]);
     }
 

@@ -10,7 +10,9 @@ defineProps({
 <template>
     <Head :title="deliverer.name" />
     <EateryDashboard>
-        <div class="flex flex-col w-full h-10/12 space-y-6 px-6 py-8">
+        <div
+            class="flex flex-col w-full h-10/12 overflow-scroll space-y-6 px-6 py-8"
+        >
             <h1 class="text-2xl font-bold font-sans">Profil</h1>
             <div class="w-full flex flex-col justify-between space-y-16">
                 <div class="flex flex-col items-center space-y-4">
@@ -27,7 +29,9 @@ defineProps({
                     <div class="text-center">
                         <h3 class="font-semibold" autocapitalize="words">
                             {{ deliverer.name
-                            }}{{ deliverer.surname ? " " + deliverer.surname : "" }}
+                            }}{{
+                                deliverer.surname ? " " + deliverer.surname : ""
+                            }}
                         </h3>
                         <Link
                             :href="route('deliverer.edit', deliverer.id)"
@@ -42,7 +46,9 @@ defineProps({
                             >Nom & Prénom.s</span
                         >
                         <span class="w-full p-2 bg-bouff-primarytree rounded-md"
-                            >{{ deliverer.surname ? " " + deliverer.surname : "" }}
+                            >{{
+                                deliverer.surname ? " " + deliverer.surname : ""
+                            }}
                             {{ deliverer.name }}</span
                         >
                     </div>
@@ -62,7 +68,10 @@ defineProps({
                             {{ deliverer.email }}</span
                         >
                     </div>
-                    <div v-if="deliverer.address" class="flex flex-col space-y-2">
+                    <div
+                        v-if="deliverer.address"
+                        class="flex flex-col space-y-2"
+                    >
                         <span class="font-semibold">Adresse</span>
                         <span
                             class="w-full p-2 bg-bouff-primarytree rounded-md"
