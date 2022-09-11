@@ -63,7 +63,16 @@ class DatabaseSeeder extends Seeder
             });
         }); */
 
-        \App\Models\User::factory(3)->create([
+       /*  \App\Models\User::factory(3)->create([
+            'rule' => 'deliverer'
+        ])->each(function ($user) {
+            Deliverer::factory()->create([
+                'user_id' => $user->id
+            ]);
+        }); */
+
+        \App\Models\User::factory()->create([
+            'phone' => '69457894',
             'rule' => 'deliverer'
         ])->each(function ($user) {
             Deliverer::factory()->create([

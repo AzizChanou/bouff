@@ -54,7 +54,7 @@ class FoodController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'min:4', 'max:30'],
             'price' => ['required', 'min:3', 'max:12'],
-            'description' => ['max:255'],
+            'description' => ['nullable', 'string', 'max:255'],
             'category' => ['required'],
             'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
@@ -115,9 +115,9 @@ class FoodController extends Controller
         $request->validate([
             'name' => ['string', 'min:6', 'max:24'],
             'status' => ['boolean'],
-            // 'picture' => ['sometimes', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'picture' => ['nullable', 'mimes:jpeg,jpg,png', 'max:2048'],
             'price' => ['min:3', 'max:12'],
-            'description' => ['string'],
+            'description' => ['nullable', 'string', 'max:255'],
         ]);
 
         if ($request->hasFile('picture')) {

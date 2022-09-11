@@ -10,7 +10,7 @@ const cartStore = useCartStore();
 
 <template>
     <li
-        class="w-full min-w-fit sm:min-w-0 sm:w-[48%] lg:w-[30%] flex flex-col rounded shadow"
+        class="max-w-full min-w-[50%] flex flex-col rounded shadow"
     >
         <div>
             <img
@@ -39,5 +39,5 @@ const cartStore = useCartStore();
                 <i class="fi-sr-shopping-cart-add"></i>
             </button>
         </div>
-    </li>
+    </li>  
 </template>

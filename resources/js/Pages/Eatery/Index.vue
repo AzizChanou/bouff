@@ -8,6 +8,7 @@ const truncate = function (string, limit) {
     }
     return string.slice(0, limit) + "...";
 };
+
 const toggle = function (source) {
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
     for (var i = 0; i < checkboxes.length; i++) {

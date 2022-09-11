@@ -33,7 +33,7 @@ const submit = () => {
 
         <form @submit.prevent="submit" class="p-2 space-y-4">
             <div>
-                <label for="phone" class="">Phone</label>
+                <label for="phone" class="">Numéro de téléphone</label>
                 <input
                     type="text"
                     id="phone"

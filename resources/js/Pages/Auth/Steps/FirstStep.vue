@@ -40,7 +40,7 @@ const props = defineProps(["formValues"]);
         </div>
 
         <div>
-            <label for="phone" class="">Numero</label>
+            <label for="phone" class="">Numéro de téléphone</label>
             <input
                 type="text"
                 id="phone"

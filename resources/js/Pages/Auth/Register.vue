@@ -40,7 +40,7 @@ const submit = () => {
             </div>
 
             <div>
-                <label for="phone" class="">Phone</label>
+                <label for="phone" class="">Numéro de téléphone</label>
                 <input
                     type="text"
                     id="phone"

@@ -44,7 +44,7 @@ class RegisteredEateryController extends Controller
             'label' => ['string', 'min:6', 'max:24', 'required'],
             'ifu' => ['string', 'unique:eateries', 'required'],
             'rccm' => ['string', 'unique:eateries', 'required'],
-            'description' => ['string', 'min:50', 'max:1024'],
+            'description' => ['string', 'min:50', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

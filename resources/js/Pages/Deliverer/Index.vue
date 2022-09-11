@@ -53,7 +53,7 @@ defineProps({
                         >
                     </div>
                     <div class="flex flex-col space-y-2">
-                        <span class="font-semibold">Numero</span>
+                        <span class="font-semibold">Numéro de téléphone</span>
                         <span
                             class="w-full p-2 bg-bouff-primarytree rounded-md"
                         >

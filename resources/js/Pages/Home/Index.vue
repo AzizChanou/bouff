@@ -56,7 +56,7 @@ if (props.food) {
                     </h2>
                     <div class="flex items-center justify-center">
                         <ul
-                            class="flex flex-row flex-wrap place-content-center py-4 text-white gap-4"
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 py-4 text-white gap-4"
                         >
                             <Eatery
                                 v-for="eatery in eateries"
@@ -74,7 +74,7 @@ if (props.food) {
                     </h2>
                     <div class="flex justify-center items-center">
                         <ul
-                            class="flex overflow-x-scroll sm:flex-row sm:flex-wrap py-4 text-white gap-4"
+                            class="overflow-x-scroll flex flex-row sm:grid sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 text-white gap-4"
                         >
                             <Food
                                 v-for="food in foods"

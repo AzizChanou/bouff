@@ -23,9 +23,7 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
-        "bounds.js": "^1.0.4",
         "kkiapay": "^1.0.7",
-        "lozad": "^1.16.0",
         "pinia": "^2.0.18",
         "swiper": "^8.3.2",
         "vue-lazyload": "^3.0.0-rc.2",
