@@ -4,11 +4,20 @@ import { Link } from "@inertiajs/inertia-vue3";
 const props = defineProps({
     eatery: Object,
 });
+
+const truncate = function (string, limit) {
+    // if (string.length <= limit) {
+    if (string === null) {
+        return "Pas de description";
+    } else {
+        return string.slice(0, limit) + "...";
+    }
+};
 </script>
 
 <template>
     <li
-        class="bg-cover max-w-full min-w-[50%] shadow-md rounded-xl hover:scale-95 duration-500"
+        class="bg-cover bg-center max-w-full min-w-[70%] w-full shadow-md rounded-xl hover:scale-95 duration-500"
         :style="'background-image: url(\'' + props.eatery.picture_path + '\');'"
     >
         <Link
@@ -25,11 +34,11 @@ const props = defineProps({
                 >
             </div>
             <div class="text-center p-10">
-                <h3 class="text-2xl font-bold uppercase">
+                <h3 class="text-2xl font-bold uppercase px-4 truncate">
                     {{ eatery.label }}
                 </h3>
-                <p class="text-sm">
-                    {{ eatery.description }}
+                <p class="text-sm text-center">
+                    {{ truncate(eatery.description, 100) }}
                 </p>
             </div>
             <div class="hidden flex-row justify-between pt-2">

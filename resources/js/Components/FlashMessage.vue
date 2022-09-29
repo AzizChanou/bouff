@@ -61,7 +61,7 @@ export default {
                 Object.keys($page.props.errors).length > 0) &&
             show
         "
-        class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50"
+        class="absolute w-fit h-fit whitespace-nowrap top-14 mx-auto z-50"
     >
         <div
             class="flex items-center justify-between max-w-3xl bg-red-500 rounded"

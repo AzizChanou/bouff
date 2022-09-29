@@ -29,13 +29,14 @@ const toggle = function (source) {
     <EateryDashboard>
         <div class="flex flex-col space-y-4 pb-8 h-full">
             <div
-                class="bg-[url('http://localhost:8000/storage/eatery/eatery.png')] bg-cover"
+                class="bg-cover"
+                :style="
+                    'background-image: url(\'' + eatery.picture_path + '\');'
+                "
             >
                 <div class="bg-bouff-secondarytwo/20 relative w-full">
                     <div class="p-24">
-                        <h2
-                            class="text-white font-bold uppercase text-center text-6xl"
-                        >
+                        <h2 class="text-white text-center text-3xl">
                             {{ eatery.label }}
                         </h2>
                     </div>

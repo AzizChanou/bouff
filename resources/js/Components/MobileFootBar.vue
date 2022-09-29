@@ -95,7 +95,7 @@ import { Link } from "@inertiajs/inertia-vue3";
         </li>
         <li>
             <Link
-                :href="route('user.index')"
+                :href="route('search')"
                 :class="{ 'text-bouff-primaryone': $page.url === '/search' }"
                 ><i class="fi-sr-search"></i
             ></Link>

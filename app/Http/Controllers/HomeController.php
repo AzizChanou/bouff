@@ -23,8 +23,6 @@ class HomeController extends Controller
     {
         $eateries = Eatery::all();
         $food_categories = FoodCategory::all();
-
-       // $foods = Food::all();
         $foods = Eatery::join('food', 'eateries.id', 'food.eatery_id')
             ->get();
 
@@ -35,12 +33,17 @@ class HomeController extends Controller
         ]);
     }
 
-    public function foodcategory()
+    public function foodcategory($id)
     {
-        $food_categories = FoodCategory::all();
-
-        return  Inertia::render('Home/SP', [
-            'food_categories' => $food_categories
+        $category_name = FoodCategory::findOrFail($id);
+        $category_foods = Food::leftJoin('food_categories', 'food.food_category_id', 'food_categories.id')
+            ->where('food.food_category_id', $id)
+            ->join('eateries', 'eatery_id', 'eateries.id')
+            ->select('food.*', 'food.picture_path as picture_path', 'label', 'price', 'food_categories.name as category_name')
+            ->get();
+        return  Inertia::render('Home/Category', [
+            'category_foods' => $category_foods,
+            'category_name' => $category_name->name
         ]);
     }
 
@@ -64,5 +67,6 @@ class HomeController extends Controller
 
     public function search()
     {
+        return  Inertia::render('Home/Search');
     }
 }

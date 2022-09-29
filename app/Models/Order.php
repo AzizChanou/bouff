@@ -8,7 +8,7 @@ use App\Traits\UUID;
 
 class Order extends Model
 {
-    use HasFactory, UUID;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.

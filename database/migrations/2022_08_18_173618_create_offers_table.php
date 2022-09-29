@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('date_active_from')->nullable();

@@ -17,7 +17,7 @@ defineProps({
                 >
                     <p class="pl-2">
                         <span class="font-bold">Commande N°</span>
-                        {{ order.id }}
+                        {{ "Bouff_CX_" + order.id }}
                     </p>
                     <OrderStatus :state="order.status" />
                 </div>
@@ -57,10 +57,7 @@ defineProps({
 
             <div class="flex items-center justify-center">
                 <VueQrcode
-                    :value="
-                        'bouff__' +
-                        order.id
-                    "
+                    :value="'Bouff_CX_' + order.id"
                     type="image/png"
                     :width="10"
                     :scale="5"

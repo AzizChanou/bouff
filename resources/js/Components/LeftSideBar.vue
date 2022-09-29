@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
 
 <template>
     <div
-        class="md:w-[6%] hidden md:flex flex-col justify-between items-center pt-10 lg:w-[14%] h-full"
+        class="md:w-[6%] hidden md:flex flex-col justify-between items-center pt-8 lg:w-[14%] h-full"
     >
         <div class="flex flex-col items-center space-y-12">
             <Link :href="route('home.index')" as="a" class="h-8">
@@ -102,13 +102,25 @@ const currentYear = new Date().getFullYear();
                             as="a"
                             :class="{
                                 'font-bold text-bouff-primaryone':
-                                    $page.url === '/order/eatery' ||
-                                    $page.url === '/order/treatedeatery',
+                                    $page.url === '/order/eatery',
                             }"
                             class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                         >
                             <i class="fi-sr-document"></i>
                             <span class="hidden lg:flex">Commandes</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            :href="route('order.treatedeatery')"
+                            :class="{
+                                'font-bold text-bouff-primaryone':
+                                    $page.url === '/order/treatedeatery',
+                            }"
+                            class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
+                        >
+                            <i class="fi-sr-assept-document"></i>
+                            <span class="hidden lg:flex">Traitées</span>
                         </Link>
                     </li>
                 </ul>

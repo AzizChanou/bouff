@@ -1,9 +1,8 @@
 <script setup>
 import { useCartStore } from "@/store/cart";
-import { useModalStore } from "@/store/modal";
 import ButtonVue from "@/Components/Button.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import { onMounted, onUnmounted, watch } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import {
     openKkiapayWidget,
     addKkiapayListener,
@@ -11,14 +10,13 @@ import {
 } from "kkiapay";
 
 const cartStore = useCartStore();
-const modalStore = useModalStore();
 
 const form = useForm({
     cart: cartStore,
     comment: "String",
     address: "Cotonou",
-    phone: "61000001",
-    transactionid: "",
+    phone: "61000000",
+    transactionid: null,
     account: "",
 });
 
@@ -46,16 +44,17 @@ const pay = () => {
 };
 
 const successHandler = (response) => {
-    form.transactionid = response.transactionId;
+    /*  form.transactionid = response.transactionId;
     form.account = response.account;
     if (response.transactionId) {
         submit();
-    }
+    } */
 };
 
 onMounted(() => {
     addKkiapayListener("success", successHandler);
 });
+
 onUnmounted(() => {
     removeKkiapayListener("success", successHandler);
 });
@@ -109,7 +108,7 @@ onUnmounted(() => {
                 :key="cart.food.id"
                 class="flex items-start justify-between"
             >
-                <h3>
+                <h3 class="">
                     {{ cart.food.name }}
                     <span class="block text-xs text-bouff-primaryone"
                         >à {{ cart.food.price }} CFA</span
@@ -160,7 +159,7 @@ onUnmounted(() => {
                     <span>{{ cartStore.totalCartTva }} CFA</span>
                 </div>
                 <ButtonVue
-                    @click="pay()"
+                    @click="submit()"
                     :disabled="
                         cartStore.totalCart < 1 ||
                         $page.props.auth.user == null ||

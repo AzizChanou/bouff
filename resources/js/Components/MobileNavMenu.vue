@@ -1,16 +1,7 @@
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3";
 
-const navMenu = document.querySelector("navMenu");
-const menu = document.querySelector("#menu");
 const currentYear = new Date().getFullYear();
-
-const showMenu = function () {
-    navMenu.classList.toggle("active");
-    menu.classList.toggle("w-3/4");
-    menu.classList.toggle("sm:w-2/4");
-    menu.classList.toggle("w-0");
-};
 </script>
 
 <template>
