@@ -20,15 +20,13 @@ const show = (components) => {
     <Head :title="eatery.label" />
     <UserDashboard>
         <div class="flex flex-col space-y-4 pb-8 relative h-full">
-            <div class="bg-cover relative">
-                <img
-                    class="object-cover object-top w-full h-[14.2rem]"
-                    :src="eatery.picture_path"
-                    alt="Flower and sky"
-                />
-                <div
-                    class="bg-bouff-secondarytwo/30 absolute top-0 left-0 w-full"
-                >
+            <div
+                class="bg-cover"
+                :style="
+                    'background-image: url(\'' + eatery.picture_path + '\');'
+                "
+            >
+                <div class="bg-bouff-secondarytwo/20 relative w-full">
                     <div class="p-24">
                         <h2 class="text-white font-medium text-center text-3xl uppercase">
                             {{ eatery.label }}

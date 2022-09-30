@@ -25,19 +25,15 @@ defineProps({
     <Head title="Restaurant" />
     <EateryDashboard>
         <div class="flex flex-col space-y-4 pb-8 relative h-full">
-            <div class="bg-cover relative">
-                <img
-                    class="object-cover object-top w-full h-[14.2rem]"
-                    :src="eatery.picture_path"
-                    alt="Flower and sky"
-                />
-                <div
-                    class="bg-bouff-secondarytwo/30 absolute top-0 left-0 w-full"
-                >
-                    <div class="p-[5.89rem] md:p-24">
-                        <h2
-                            class="text-white font-medium text-center text-3xl uppercase"
-                        >
+            <div
+                class="bg-cover"
+                :style="
+                    'background-image: url(\'' + eatery.picture_path + '\');'
+                "
+            >
+                <div class="bg-bouff-secondarytwo/20 relative w-full">
+                    <div class="p-24">
+                        <h2 class="text-white uppercase font-bold text-center text-3xl">
                             {{ eatery.label }}
                         </h2>
                     </div>
@@ -61,10 +57,10 @@ defineProps({
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >
                         <i
-                            class="fi-sr-document text-7xl text-bouff-primaryone"
+                            class="fi-sr-assept-document text-7xl text-bouff-primaryone"
                         ></i>
                         <span class="font-medium text-center uppercase"
-                            >Commandes</span
+                            >Commandes Traitées</span
                         >
                     </div>
                 </Link>

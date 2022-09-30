@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('food', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name');
             $table->unsignedFloat('price');
             $table->string('description')->nullable();

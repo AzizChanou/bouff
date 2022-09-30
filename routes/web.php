@@ -24,6 +24,12 @@ Route::get('/', [HomeController::class, 'index'])
 Route::get('eatery/{eatery}', [EateryController::class, 'show'])
     ->name('eatery.show');
 
+Route::get('category/{eatery}', [HomeController::class, 'foodcategory'])
+    ->name('home.foodcategory');
+
+Route::get('search', [HomeController::class, 'search'])
+    ->name('search');
+
 Route::inertia('/about', 'Infos/About')
     ->name('about');
 

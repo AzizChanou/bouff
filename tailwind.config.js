@@ -30,8 +30,11 @@ module.exports = {
                     secondarytwo: '#1b213d',
                     secondarytree: '#49434c',
                 }
+            },
+            screens: {
+                xs: '500px',
             }
-        },
+        }
     },
     //  plugins: [require('@tailwindcss/forms')],
 }

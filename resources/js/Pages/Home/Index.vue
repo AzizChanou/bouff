@@ -1,10 +1,9 @@
 <script setup>
 import UserDashboard from "@/Layouts/UserDashboard.vue";
-import Loading from "@/Components/Loading.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import Eatery from "@/Components/Eatery.vue";
 import Food from "@/Components/Food.vue";
-import { computed, onMounted } from "vue";
+import Category from "@/Components/Category.vue";
 
 const props = defineProps({
     eateries: Object,
@@ -27,36 +26,34 @@ if (props.food) {
     <Head title="Accueil" />
     <UserDashboard>
         <div class="px-6 pb-8">
-            <div class="h-full space-y-6">
-                <!-- <div>
+            <div class="h-full space-y-2">
+                <div>
                     <h2
-                        class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold"
+                        class="pt-2 bg-bouff-primaryfor text-2xl font-bold"
                     >
                         CATEGORIE
                     </h2>
-                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center">
                         <ul
-                            class="flex overflow-x-scroll sm:flex-row sm:flex-wrap py-4 text-white gap-4"
+                            class="flex flex-row overflow-x-scroll items-end space-x-6 text-secondarytwo py-2"
                         >
-                            <li
-                                v-for="cat in food_categories"
-                                :key="cat.id"
-                                class="rounded-full p-6 font-bold bg-bouff-primaryone"
-                            >
-                                {{ cat.name }}
-                            </li>
+                            <Category
+                                v-for="category in food_categories"
+                                :key="category.id"
+                                :category="category"
+                            />
                         </ul>
                     </div>
-                </div> -->
+                </div>
                 <div>
                     <h2
-                        class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold"
+                        class="bg-bouff-primaryfor text-2xl font-bold"
                     >
                         RESTAURANT POPULAIRE
                     </h2>
                     <div class="flex items-center justify-center">
                         <ul
-                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 py-4 text-white gap-4"
+                            class="w-full grid xs:grid-cols-2 xl:grid-cols-3 py-4 text-white gap-4"
                         >
                             <Eatery
                                 v-for="eatery in eateries"
@@ -68,13 +65,13 @@ if (props.food) {
                 </div>
                 <div>
                     <h2
-                        class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold"
+                        class="bg-bouff-primaryfor text-2xl font-bold"
                     >
                         BOUFF
                     </h2>
                     <div class="flex justify-center items-center">
                         <ul
-                            class="overflow-x-scroll flex flex-row sm:grid sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 text-white gap-4"
+                            class="overflow-x-scroll w-full flex flex-row sm:grid sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 text-white gap-4"
                         >
                             <Food
                                 v-for="food in foods"

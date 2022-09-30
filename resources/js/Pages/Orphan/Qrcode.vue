@@ -10,7 +10,6 @@ export default {
             isValid: undefined,
             camera: "auto",
             result: null,
-            ok: undefined,
         };
     },
 
@@ -48,7 +47,7 @@ export default {
 
             await this.timeout(1000);
 
-            this.isValid = content.startsWith("bouff__");
+            this.isValid = content.startsWith("Bouff_CX_");
 
             if (this.isValid) {
                 this.delivered();

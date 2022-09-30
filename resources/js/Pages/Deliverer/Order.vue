@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear();
     <DelivererDashboard>
         <div class="h-full">
             <h1 class="text-2xl px-6 font-bold font-sans">Commandes</h1>
-            <ul class="h-full divide-y">
+            <ul class="h-full overflow-y-scroll divide-y">
                 <OrderDeliverer
                     v-for="order in orders"
                     :accepted="true"

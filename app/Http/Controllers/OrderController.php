@@ -115,7 +115,6 @@ class OrderController extends Controller
      */
     public function treatedeatery()
     {
-
         //liste des commandes restaurant attribuées
         $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.eatery_id', Auth::user()->eatery->id)
@@ -143,6 +142,7 @@ class OrderController extends Controller
                 $orders[] = $order;
             }
         }
+
         for ($i = 0; $i < count($getOrders); $i++) {
             for ($j = 0; $j < count($order_items); $j++) {
                 if ($order_items[$j]->order_id === $getOrders[$i]->id) {
@@ -279,6 +279,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->cart);
         $kkiapay = new \Kkiapay\Kkiapay(
             env('KKIPA_PUBLIC_KEY'),
             env('KKIPA_PRIVAYE_KEY'),
@@ -294,34 +295,54 @@ class OrderController extends Controller
 
         $totalPrice += (500 + ($totalPrice * 0.019));
 
-        $transaction =  $kkiapay->verifyTransaction($request->transactionid);
-        /*  if ($transaction->statusCode === 400) {
-            return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
-        } else { */
-        if ($transaction->status === 'SUCCESS' && $request->cart["totalCartTva"] == $totalPrice) {
-            $order =  Order::create([
-                'comment' => $request->comment,
-                'phone' => $request->phone,
-                'status_payment' => true,
-                'address' => $request->address,
-                'total_amount' =>  $totalPrice,
-                'user_id' => Auth::user()->id,
-                'eatery_id' => $request->cart["cart"][0]["food"]["eatery_id"],
-            ]);
+        /*   if ($request->transactionid) {
 
-            for ($i = 0; $i < count($request->cart["cart"]); $i++) {
-                OrderItem::create([
-                    'quantity' => $request->cart["cart"][$i]["quantity"],
-                    'price' => $request->cart["cart"][$i]["food"]["price"],
-                    'order_id' => $order->id,
-                    'food_id' => $request->cart["cart"][$i]["food"]["id"]
-                ]);
-            }
-            return redirect()->back()->with('success', 'Commande effectuée !');
-            /*  } else {
-                return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
-            } */
+            $transaction =  $kkiapay->verifyTransaction($request->transactionid);
+
+            if ($transaction->status === 'SUCCESS' && $request->cart["totalCartTva"] == $totalPrice) {
+ */
+        $order =  Order::create([
+            'comment' => $request->comment,
+            'phone' => $request->phone,
+            'status_payment' => true,
+            'address' => $request->address,
+            'total_amount' =>  $totalPrice,
+            'user_id' => Auth::user()->id,
+            'eatery_id' => $request->cart["cart"][0]["food"]["eatery_id"],
+        ]);
+
+        for ($i = 0; $i < count($request->cart["cart"]); $i++) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'quantity' => $request->cart["cart"][$i]["quantity"],
+                'price' => $request->cart["cart"][$i]["food"]["price"],
+                'food_id' => $request->cart["cart"][$i]["food"]["id"],
+            ]);
         }
+
+        return redirect()->back()->with('success', 'Commande effectuée !');
+        /*      } else {
+
+                return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
+        } */
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $order = Order::findorfail($id);
+        return redirect()->back()->with('order', $order);
+        /*  return Inertia::render('Order/Eatery', [
+            'order' =>  $order
+        ]); */
     }
 
 
@@ -367,7 +388,7 @@ class OrderController extends Controller
      */
     public function delivered($id)
     {
-        $codeId = substr($id, 7);
+        $codeId = substr($id, 9);
         $order = Order::find($codeId);
         if ($order === null) {
             return redirect()->back()->with('error', 'Aucune commande ne correspond !');

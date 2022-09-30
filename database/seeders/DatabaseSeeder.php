@@ -19,60 +19,57 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Vegan',
-            'category_logo_path' => 'boisson.png',
+            'name' => 'Fast Food',
+            'category_logo_path' => '/storage/category/fastfood.png',
             'description' => 'Boisson liquide accompagnants tout mets',
-        ]);
-        \App\Models\FoodCategory::factory()->create([
-            'name' => 'Snack',
-            'category_logo_path' => 'snack.png',
-            'description' => 'Nourriture rapide pour les petits creux',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Bouff',
-            'category_logo_path' => 'bouff.png',
+            'name' => 'Plat Principal',
+            'category_logo_path' => '/storage/category/principal.png',
             'description' => 'Plats de resistance',
         ]);
 
-
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Appéritif',
-            'category_logo_path' => 'boisson.png',
+            'name' => 'Boisson',
+            'category_logo_path' => '/storage/category/boisson.png',
             'description' => 'Boisson liquide accompagnants tout mets',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
-            'name' => 'Résistance',
-            'category_logo_path' => 'snack.png',
+            'name' => 'Snack',
+            'category_logo_path' => '/storage/category/snack.png',
+            'description' => 'Nourriture plein pour les petits creux',
+        ]);
+
+        \App\Models\FoodCategory::factory()->create([
+            'name' => 'Dessert',
+            'category_logo_path' => '/storage/category/dessert.png',
+            'description' => 'Boisson liquide accompagnants tout mets',
+        ]);
+
+        \App\Models\FoodCategory::factory()->create([
+            'name' => 'Japonais',
+            'category_logo_path' => '/storage/category/japonais.png',
             'description' => 'Nourriture plein pour les petits creux',
         ]);
 
         \App\Models\User::factory(2)->create();
 
-        /*   \App\Models\User::factory(3)->create([
+        \App\Models\User::factory(3)->create([
             'rule' => 'eatery'
         ])->each(function ($user) {
             Eatery::factory()->create([
                 'user_id' => $user->id
             ])->each(function ($eatery) {
                 Food::factory(5)->create([
-                    'food_category_id' => rand(1, 1),
+                    'food_category_id' => rand(1, 5),
                     'eatery_id' => $eatery->id,
                 ]);
             });
-        }); */
+        });
 
-       /*  \App\Models\User::factory(3)->create([
-            'rule' => 'deliverer'
-        ])->each(function ($user) {
-            Deliverer::factory()->create([
-                'user_id' => $user->id
-            ]);
-        }); */
-
-        \App\Models\User::factory()->create([
-            'phone' => '69457894',
+        \App\Models\User::factory(3)->create([
             'rule' => 'deliverer'
         ])->each(function ($user) {
             Deliverer::factory()->create([
@@ -88,5 +85,9 @@ class DatabaseSeeder extends Seeder
                 'user_id' => $user->id
             ]);
         });
+
+        \App\Models\User::factory()->create([
+            'phone' => '66485160',
+        ]);
     }
 }

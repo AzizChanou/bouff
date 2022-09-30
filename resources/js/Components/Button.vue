@@ -9,8 +9,6 @@ defineProps({
         type: String,
     },
 });
-
-const modalStore = useModalStore();
 </script>
 
 <template>
@@ -24,7 +22,7 @@ const modalStore = useModalStore();
     <button
         v-else-if="name === 'yes'"
         :type="type"
-        class="font-medium text-white p-2 bg-bouff-primaryone rounded hover:bg-orange-500 duration-500"
+        class="font-medium text-white p-2 bg-bouff-primaryone rounded hover:bg-bouff-secondarytwo duration-500"
     >
         {{ text }}
     </button>

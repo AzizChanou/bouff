@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Food extends Model
 {
-    use HasFactory, UUID;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.

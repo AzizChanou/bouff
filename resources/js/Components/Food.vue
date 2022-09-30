@@ -10,7 +10,7 @@ const cartStore = useCartStore();
 
 <template>
     <li
-        class="max-w-full min-w-[50%] flex flex-col rounded shadow"
+        class="max-w-full min-w-[60%] flex flex-col rounded shadow hover:shadow-lg duration-300"
     >
         <div>
             <img
@@ -30,7 +30,7 @@ const cartStore = useCartStore();
         <div
             class="flex flex-row items-center justify-between text-bouff-secondarytwo text-sm m-1 px-2"
         >
-            <span>{{ food.price }} CFA</span>
+            <span class="whitespace-nowrap">{{ food.price }} CFA</span>
             <button
                 @click="cartStore.addFoodToCart(food)"
                 class="px-2 py-1 mb-2 bg-bouff-primaryone text-white font-bold rounded-md hover:bg-bouff-secondarytwo duration-500"

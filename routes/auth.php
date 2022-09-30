@@ -90,6 +90,9 @@ Route::middleware('auth')->group(function () {
     Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])
         ->name('order.delivered');
 
+    Route::get('order/{order}', [OrderController::class, 'show'])
+        ->name('order.show');
+
     Route::inertia('/qrcode', 'Orphan/Qrcode')
         ->name('qrcode');
     Route::get('order/delivered/{order}', [OrderController::class, 'delivered'])

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('phone')->nullable();
             $table->string('address');
             $table->string('comment')->default('Sans commentaire !');
