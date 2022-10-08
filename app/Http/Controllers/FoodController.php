@@ -146,4 +146,32 @@ class FoodController extends Controller
         Food::destroy($id);
         return redirect()->route('food.index')->with('success', 'Bouff supprimee avec succees !');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function cat()
+    {
+        $cat = FoodCategory::find(1);
+        $cat->category_logo_path = "/storage/category/fastfood.png";
+        $cat->save();
+        $cat = FoodCategory::find(2);
+        $cat->category_logo_path = "/storage/category/principal.png";
+        $cat->save();
+        $cat = FoodCategory::find(3);
+        $cat->category_logo_path = "/storage/category/boisson.png";
+        $cat->save();
+        $cat = FoodCategory::find(4);
+        $cat->category_logo_path = "/storage/category/snack.png";
+        $cat->save();
+        $cat = FoodCategory::find(5);
+        $cat->category_logo_path = "/storage/category/dessert.png";
+        $cat->save();
+        $cat = FoodCategory::find(6);
+        $cat->category_logo_path = "/storage/category/japonais.png";
+        $cat->save();
+    }
 }

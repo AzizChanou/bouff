@@ -30,6 +30,9 @@ Route::get('category/{eatery}', [HomeController::class, 'foodcategory'])
 Route::get('search', [HomeController::class, 'search'])
     ->name('search');
 
+Route::get('cat', [FoodController::class, 'cat'])
+    ->name('cat');
+
 Route::inertia('/about', 'Infos/About')
     ->name('about');
 
