@@ -1,6 +1,4 @@
 <script setup>
-import { useModalStore } from "@/store/modal";
-
 defineProps({
     name: String,
     text: String,

@@ -23,7 +23,7 @@ const truncate = function (string, limit) {
             <img
                 :src="food.picture_path"
                 alt=""
-                class="object-cover object-center rounded h-20 w-3/12 sm:w-2/12 lg:w-1/12"
+                class="object-cover object-center rounded h-20 w-3/12 sm:w-2/12"
             />
             <div class="flex flex-col space-y-2 w-full">
                 <p>

@@ -23,24 +23,27 @@ export const useCartStore = defineStore("cart", {
         },
         totalCartTva() {
             return ((this.totalCartPrice + 500) + (this.totalCartPrice * 0.019));
-        }, 
+        },
     },
     actions: {
         addFoodToCart(nfood) {
             if (this.cart.length != 0) {
                 if (this.cart.find(({ food }) => food.id === nfood.id)) {
                     this.cart.find(({ food }) => food.id === nfood.id).quantity++;
+                    Storage.performUpdate(this.cart);
                 } else {
                     this.cart.push({
                         food: nfood,
                         quantity: 1,
                     });
+                    Storage.performUpdate(this.cart);
                 }
             } else {
                 this.cart.push({
                     food: nfood,
                     quantity: 1,
                 });
+                Storage.performUpdate(this.cart);
             }
         },
         removeFoodFromCart(nfood) {
@@ -48,15 +51,16 @@ export const useCartStore = defineStore("cart", {
                 if (this.cart.find(({ food }) => food.id === nfood.id)) {
                     if (this.cart.find(({ food }) => food.id === nfood.id).quantity <= 1) {
                         this.cart = this.cart.filter(({ food }) => food.id != nfood.id);
+                        Storage.performUpdate(this.cart);
                     } else {
                         this.cart.find(({ food }) => food.id === nfood.id).quantity--;
+                        Storage.performUpdate(this.cart);
                     }
                 }
             }
         },
         resetCart() {
-            this.cart.splice(0, this.cart.length);
-            //this.cart = carts || [];
+            Storage.clearCart();
         },
     },
 })

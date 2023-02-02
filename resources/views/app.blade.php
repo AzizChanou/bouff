@@ -7,26 +7,20 @@
 
     <title inertia>{{ config('app.name', 'Bouff') }}</title>
 
-
     <link rel="shortcut icon" href="{{asset('assets/svg/bouff_logo_short.svg')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{asset('assets/svg/bouff_logo_short.svg')}}">
     <link href="{{asset('assets/webfonts/uicons-solid-rounded.css')}}" rel="stylesheet">
 
-    <!-- Fonts -->
-
     <!-- Scripts -->
-    @laravelPWA
+    {{-- @laravelPWA --}}
     @routes
     @vite('resources/js/app.js')
     @inertiaHead
 </head>
 <style>
     ::-webkit-scrollbar {
-        width: 0rem;
-    }
-
-    * {
-        border-width: 0px;
+        width: 0px;
+        height: 0px;
     }
 </style>
 

@@ -22,7 +22,7 @@ const truncate = function (string, limit) {
             <img
                 v-lazy="category.category_logo_path"
                 class="rounded-full min-w-full min-h-full w-32"
-                alt=""
+                :alt="category.name"
             />
         </Link>
         <span class="whitespace-nowrap font-medium mt-2">

@@ -1,10 +1,9 @@
 {
-    "name": "laravel/bouff",
+    "name": "laravel/project",
     "type": "project",
     "description": "Application de livraison de nourriture en ligne.",
     "keywords": [
-        "framework",
-        "laravel"
+        "nourriture"
     ],
     "license": "MIT",
     "require": {
@@ -14,7 +13,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.3",
         "kkiapay/kkiapay-php": "dev-master",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "^9.38",
         "laravel/sanctum": "^2.8",
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.7",
