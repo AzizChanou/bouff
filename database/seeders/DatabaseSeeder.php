@@ -6,7 +6,6 @@ use App\Models\Deliverer;
 use App\Models\Eatery;
 use App\Models\Food;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
