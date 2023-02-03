@@ -61,7 +61,7 @@ class FoodController extends Controller
 
         // $picture_path = "/storage" . '/' . $request->file('picture')->storeAs('food_picture', $picture_name, 'public');
         $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-        $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
+        $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name);
 
         Food::create([
             'status' => true,
@@ -122,7 +122,7 @@ class FoodController extends Controller
 
         if ($request->hasFile('picture')) {
             $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-            $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name, 'google');
+            $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name);
             $food->picture_path = Storage::url($picture_path);
         }
 

@@ -91,7 +91,7 @@ class EateryController extends Controller
 
         if ($request->hasFile('picture')) {
             $picture_name = Auth::user()->eatery->id . '_' . $request->label . '.' . $request->file('picture')->extension();
-            $picture_path = $request->file('picture')->storeAs('eatery', $picture_name, 'google');
+            $picture_path = $request->file('picture')->storeAs('eatery', $picture_name);
             $eatery->picture_path = Storage::url($picture_path);
         }
 

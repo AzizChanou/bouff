@@ -7,6 +7,7 @@ use App\Models\Eatery;
 use App\Models\Food;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,37 +20,37 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Fast Food',
-            'category_logo_path' => '/storage/category/fastfood.png',
-            'description' => 'Boisson liquide accompagnants tout mets',
+            'category_logo_path' => asset('storage/category/fastfood.png'),
+            'description' => 'Bouff rapide',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Plat Principal',
-            'category_logo_path' => '/storage/category/principal.png',
+            'category_logo_path' => asset('storage/category/principal.png'),
             'description' => 'Plats de resistance',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Boisson',
-            'category_logo_path' => '/storage/category/boisson.png',
+            'category_logo_path' => asset('storage/category/boisson.png'),
             'description' => 'Boisson liquide accompagnants tout mets',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Snack',
-            'category_logo_path' => '/storage/category/snack.png',
+            'category_logo_path' => asset('storage/category/snack.png'),
             'description' => 'Nourriture plein pour les petits creux',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Dessert',
-            'category_logo_path' => '/storage/category/dessert.png',
+            'category_logo_path' => asset('storage/category/dessert.png'),
             'description' => 'Boisson liquide accompagnants tout mets',
         ]);
 
         \App\Models\FoodCategory::factory()->create([
             'name' => 'Japonais',
-            'category_logo_path' => '/storage/category/japonais.png',
+            'category_logo_path' => asset('storage/category/japonais.png'),
             'description' => 'Nourriture plein pour les petits creux',
         ]);
 
