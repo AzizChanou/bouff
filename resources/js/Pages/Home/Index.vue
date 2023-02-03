@@ -29,7 +29,7 @@ if (props.food) {
         <div class="px-6 pb-8">
             <div class="h-full space-y-2">
                 <div>
-                    <h2 class="font-botany pt-2 bg-bouff-primaryfor text-2xl font-bold">
+                    <h2 class="pt-2 bg-bouff-primaryfor text-2xl font-bold">
                         CATEGORIE
                     </h2>
                     <div class="flex justify-center">
@@ -39,7 +39,7 @@ if (props.food) {
                     </div>
                 </div>
                 <div>
-                    <h2 class="font-botany bg-bouff-primaryfor text-2xl font-bold">
+                    <h2 class="bg-bouff-primaryfor text-2xl font-bold">
                         RESTAURANT POPULAIRE
                     </h2>
                     <div class="flex items-center justify-center">
@@ -49,7 +49,7 @@ if (props.food) {
                     </div>
                 </div>
                 <div>
-                    <h2 class="font-botany bg-bouff-primaryfor text-2xl font-bold">
+                    <h2 class="bg-bouff-primaryfor text-2xl font-bold">
                         BOUFF
                     </h2>
                     <div class="flex justify-center items-center">
