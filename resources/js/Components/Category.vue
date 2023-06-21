@@ -20,7 +20,7 @@ const truncate = function (string, limit) {
     >
         <Link :href="route('home.foodcategory', category.id)" class="w-full">
             <img
-                v-lazy="category.category_logo_path"
+                :src="category.category_logo_path"
                 class="rounded-full min-w-full min-h-full w-32"
                 :alt="category.name"
             />

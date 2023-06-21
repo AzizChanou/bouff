@@ -26,7 +26,6 @@
         "kkiapay": "^1.0.7",
         "lozad": "^1.16.0",
         "pinia": "^2.0.18",
-        "swiper": "^8.3.2",
         "vue-lazyload": "^3.0.0-rc.2",
         "vue-qrcode": "^2.0.0",
         "vue3-qrcode-reader": "^0.0.1"

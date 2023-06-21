@@ -65,6 +65,7 @@ class OrderController extends Controller
      */
     public function eatery()
     {
+        dd('ok');
         //liste des commandes restaurant
         $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.eatery_id', Auth::user()->eatery->id)

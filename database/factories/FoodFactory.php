@@ -21,7 +21,7 @@ class FoodFactory extends Factory
             'price' => fake()->numberBetween(500, 15000),
             'description' => fake()->words(3, true),
             'food_category_id' => fake()->numberBetween(1, 3),
-            'picture_path' => '/storage/food_picture/4179b944-74ce-4ab9-a5aa-c975a4923d8a_Panini.jpg'
+            'picture_path' => asset('storage/food_picture/panini.jpg'),
         ];
     }
 }

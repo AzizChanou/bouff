@@ -22,7 +22,7 @@ export default {
 <template>
     <div
         v-if="$page.props.flash && $page.props.flash.success && show"
-        class="flex absolute w-fit h-fit mx-auto justify-center pt-2 z-50"
+        class="flex !absolute w-fit h-fit mx-auto justify-center z-50"
     >
         <div
             class="flex items-center justify-center max-w-3xl bg-green-500 rounded"

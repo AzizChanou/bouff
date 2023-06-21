@@ -64,7 +64,7 @@ defineProps({
                         >
                     </div>
                 </Link>
-                <Link :href="route('eatery.stats')" as="a">
+               <!--  <Link :href="route('eatery.stats')" as="a">
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"
                     >
@@ -75,7 +75,7 @@ defineProps({
                             >Statistique</span
                         >
                     </div>
-                </Link>
+                </Link> -->
                 <Link :href="route('eatery.edit', eatery.id)" as="a">
                     <div
                         class="flex flex-col bg-bouff-primarytree/40 shadow-sm text-bouff-secondarytwo rounded-md space-y-4 items-center justify-center p-2"

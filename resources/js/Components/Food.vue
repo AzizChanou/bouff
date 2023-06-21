@@ -14,7 +14,7 @@ const cartStore = useCartStore();
     >
         <div>
             <img
-                v-lazy="food.picture_path"
+                :src="food.picture_path"
                 alt=""
                 class="object-cover object-center w-full h-40 rounded-t"
             />

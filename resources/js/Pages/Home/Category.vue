@@ -15,7 +15,7 @@ defineProps({
     <UserDashboard>
         <div class="px-6 pb-8">
             <div class="w-full h-full">
-                <h2 class="font-botany pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold">
+                <h2 class="pt-2 top-0 bg-bouff-primaryfor text-2xl font-bold">
                     {{ category_name }}
                 </h2>
                 <div class="flex items-center justify-center">
