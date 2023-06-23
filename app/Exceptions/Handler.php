@@ -58,6 +58,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         $response = parent::render($request, $e);
+        // dd($response->status());
         if (!app()->environment(['', 'testing']) && in_array(
             $response->status(),
             [403]
@@ -69,7 +70,7 @@ class Handler extends ExceptionHandler
             return Inertia::render('Error/Error404', ['status' => $response->status()])
                 ->toResponse($request)
                 ->setStatusCode($response->status());
-        }elseif ($response->status() === 403) {
+        } elseif ($response->status() === 403) {
             return Inertia::render('Error/Forbbiden', ['status' => $response->status()])
                 ->toResponse($request)
                 ->setStatusCode($response->status());
@@ -81,7 +82,7 @@ class Handler extends ExceptionHandler
             return Inertia::render('Error/Serveur', ['status' => $response->status()])
                 ->toResponse($request)
                 ->setStatusCode($response->status());
-        }  */elseif ($response->status() === 419) {
+        }  */ elseif ($response->status() === 419) {
             return back()->with([
                 'error' => ('The page expired, please try again.'),
             ]);

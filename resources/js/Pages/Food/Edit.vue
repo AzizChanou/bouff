@@ -12,7 +12,7 @@ const form = useForm({
     id: props.food.id,
     name: props.food.name,
     price: props.food.price,
-    category_id: props.food.category_id,
+    category_id: props.food.food_category_id,
     description: props.food.description,
     picture: null,
 });
@@ -85,7 +85,7 @@ const submit = () => {
                             >
                             <select
                                 class="w-full p-3 text-sm bg-bouff-primarytree/40 outline-bouff-primaryone rounded-md"
-                                v-model="form.category"
+                                v-model="form.category_id"
                                 id="category"
                             >
                                 <option

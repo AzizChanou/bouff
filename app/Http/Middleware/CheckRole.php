@@ -18,7 +18,7 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, String $role)
     {
-        // dd(Auth::user()->rule);
+        // dd(Auth::user()->rule, $role);
         if ($role == 'user' && Auth::user()->rule != 'user') {
             abort(403);
             return redirect()->back()->with('error', 'Vous n\'êtes pas autorisé à effectuer cette opération');

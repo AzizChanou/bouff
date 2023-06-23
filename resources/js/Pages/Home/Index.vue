@@ -10,20 +10,9 @@ const props = defineProps({
     food_categories: Object,
     foods: Object,
 });
-
-/* const itIs = (e) => {
-    return e.eatery_id == 1;
-};
-
-if (props.food) {
-    const eatone = computed(() => {
-        return props.food.filter((foo) => foo.eatery_id == 2);
-    });
-} */
 </script>
 
 <template>
-
     <Head title="Accueil" />
     <UserDashboard>
         <div class="px-6 pb-8">
@@ -33,8 +22,14 @@ if (props.food) {
                         CATEGORIE
                     </h2>
                     <div class="flex justify-center">
-                        <ul class="flex flex-row overflow-x-scroll items-end space-x-6 text-secondarytwo py-2">
-                            <Category v-for="category in food_categories" :key="category.id" :category="category" />
+                        <ul
+                            class="flex flex-row overflow-x-scroll items-end space-x-6 text-secondarytwo py-2"
+                        >
+                            <Category
+                                v-for="category in food_categories"
+                                :key="category.id"
+                                :category="category"
+                            />
                         </ul>
                     </div>
                 </div>
@@ -43,8 +38,14 @@ if (props.food) {
                         RESTAURANT POPULAIRE
                     </h2>
                     <div class="flex items-center justify-center">
-                        <ul class="w-full grid xs:grid-cols-2 xl:grid-cols-3 py-4 text-white gap-4">
-                            <Eatery v-for="eatery in eateries" :key="eatery.id" :eatery="eatery" />
+                        <ul
+                            class="w-full grid xs:grid-cols-2 xl:grid-cols-3 py-4 text-white gap-4"
+                        >
+                            <Eatery
+                                v-for="eatery in eateries"
+                                :key="eatery.id"
+                                :eatery="eatery"
+                            />
                         </ul>
                     </div>
                 </div>
@@ -54,8 +55,13 @@ if (props.food) {
                     </h2>
                     <div class="flex justify-center items-center">
                         <ul
-                            class="overflow-x-scroll w-full flex flex-row sm:grid sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 text-white gap-4">
-                            <Food v-for="food in foods" :key="food.id" :food="food" />
+                            class="overflow-x-scroll w-full flex flex-row sm:grid sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 text-white gap-4"
+                        >
+                            <Food
+                                v-for="food in foods"
+                                :key="food.id"
+                                :food="food"
+                            />
                         </ul>
                     </div>
                 </div>
@@ -63,7 +69,6 @@ if (props.food) {
         </div>
     </UserDashboard>
 </template>
-
 
 <style scoped>
 ::-webkit-scrollbar {

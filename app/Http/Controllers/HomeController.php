@@ -67,6 +67,12 @@ class HomeController extends Controller
 
     public function search()
     {
-        return  Inertia::render('Home/Search');
+        // dd(request('q'));
+        $eateries = Eatery::query()->where('label', 'like', '%' . request('q') . '%')->get();
+        $foods = Food::query()->where('name', 'like', '%' . request('q') . '%')->get();
+        return  Inertia::render('Home/Search', [
+            'eateries' => $eateries,
+            'foods' => $foods
+        ]);
     }
 }

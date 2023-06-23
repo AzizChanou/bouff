@@ -93,13 +93,13 @@ import { Link } from "@inertiajs/inertia-vue3";
                 ><i class="fi-sr-home"></i
             ></Link>
         </li>
-       <!--  <li>
+        <li>
             <Link
                 :href="route('search')"
                 :class="{ 'text-bouff-primaryone': $page.url === '/search' }"
                 ><i class="fi-sr-search"></i
             ></Link>
-        </li> -->
+        </li>
         <li>
             <Link
                 :href="route('order.user')"

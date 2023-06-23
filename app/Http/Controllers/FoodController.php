@@ -94,7 +94,7 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        $food = Food::findOrFail($id);
+        $food = Food::with('foodcategory')->findOrFail($id);
         $food_categories = FoodCategory::all();
         return Inertia::render('Food/Edit', [
             'food' => $food,
