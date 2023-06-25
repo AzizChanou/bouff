@@ -61,7 +61,7 @@ const toggle = function (source) {
                 <table class="text-sm text-left w-full">
                     <thead class="text-xs uppercase bg-bouff-primarytree">
                         <tr>
-                            <th
+                           <!--  <th
                                 scope="col"
                                 class="p-3 items-center hidden sm:flex"
                             >
@@ -70,7 +70,7 @@ const toggle = function (source) {
                                     @click="toggle(this)"
                                     class="accent-bouff-secondarytwo"
                                 />
-                            </th>
+                            </th> -->
                             <th scope="col" class="p-3">Photo</th>
                             <th scope="col" class="p-3">Nom Bouff</th>
                             <th
@@ -95,14 +95,14 @@ const toggle = function (source) {
                             v-for="food in foods"
                             :key="food.id"
                         >
-                            <td class="px-3 py-4 items-center hidden sm:flex">
+                           <!--  <td class="px-3 py-4 items-center hidden sm:flex">
                                 <input
                                     type="checkbox"
                                     class="accent-bouff-secondarytwo"
                                     name=""
                                     id=""
                                 />
-                            </td>
+                            </td> -->
                             <th scope="row" class="px-3 py-4 text-gray-900">
                                 <img
                                     :src="food.picture_path"

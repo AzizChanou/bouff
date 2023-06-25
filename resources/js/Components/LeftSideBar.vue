@@ -45,7 +45,7 @@ const currentYear = new Date().getFullYear();
                     class="flex flex-row space-x-2 hover:scale-110 hover:text-bouff-primaryone duration-300"
                 >
                     <i class="fi-sr-search"></i>
-                    <span class="hidden lg:flex">Racherche</span>
+                    <span class="hidden lg:flex">Recherche</span>
                 </Link>
                 <ul
                     v-if="

@@ -9,7 +9,7 @@ defineProps({
         v-if="state === 'Treatment'"
         class="bg-bouff-primarytwo rounded-md whitespace-nowrap inline px-3 py-2 font-semibold text-white"
     >
-        Traiter
+        Traitement
     </span>
     <span
         v-if="state === 'Preparation'"

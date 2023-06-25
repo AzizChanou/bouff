@@ -14,8 +14,16 @@ const props = defineProps({
 
 const query = ref(null);
 
+let searchTimeout = null;
+
 const search = () => {
-    Inertia.get(route("search"), { q: query.value });
+    if (searchTimeout) {
+        clearTimeout(searchTimeout);
+    }
+
+    searchTimeout = setTimeout(() => {
+        Inertia.get(route("search"), { q: query.value });
+    }, 1000);
 };
 </script>
 
@@ -30,7 +38,7 @@ const search = () => {
                 <div class="flex flex-row items-center">
                     <input
                         v-model="query"
-                        @keydown.enter="search"
+                        @input="search"
                         placeholder="Rechercher..."
                         class="p-3 bg-bouff-primarytree/30 border-y outline-none border-l rounded-l-full w-full text-gray-500 text-xs"
                     />
@@ -38,7 +46,7 @@ const search = () => {
                         class="fi-sr-search p-2 pr-4 bg-bouff-primarytree/30 border-y border-r rounded-r-full"
                     ></i>
                 </div>
-                <div>
+                <div v-if="eateries.length > 0">
                     <h2 class="pt-2 bg-bouff-primaryfor text-2xl font-bold">
                         RESTAURANT
                     </h2>
@@ -54,7 +62,7 @@ const search = () => {
                         </ul>
                     </div>
                 </div>
-                <div>
+                <div v-if="foods.length > 0">
                     <h2 class="pt-2 bg-bouff-primaryfor text-2xl font-bold">
                         BOUFF
                     </h2>

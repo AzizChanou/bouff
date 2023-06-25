@@ -65,12 +65,11 @@ class OrderController extends Controller
      */
     public function eatery()
     {
-        // dd('ok');
-        //liste des commandes restaurant
-        $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
+        /*  $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.eatery_id', Auth::user()->eatery->id)
             ->where('orders.status_payment', true)
             ->join('food', 'food.id', 'order_items.food_id')
+            ->orderBy('orders.created_at', 'asc')
             ->get();
 
         $getOrders = Auth::user()->eatery->orders;
@@ -101,7 +100,9 @@ class OrderController extends Controller
                     ]);
                 }
             }
-        }
+        } */
+
+        $orders = Order::with(['orderItems.food', 'user'])->where('eatery_id', Auth::user()->eatery->id)->whereIn('status', ['Treatment', 'Preparation'])->orderBy('created_at', 'desc')->get();
 
         return Inertia::render('Order/Eatery', [
             'orders' =>  $orders
@@ -117,7 +118,7 @@ class OrderController extends Controller
     public function treatedeatery()
     {
         //liste des commandes restaurant attribuées
-        $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
+        /* $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.eatery_id', Auth::user()->eatery->id)
             ->where('orders.status_payment', true)
             ->where('orders.status', '<>', 'Treatment')
@@ -154,7 +155,8 @@ class OrderController extends Controller
                     ]);
                 }
             }
-        }
+        } */
+        $orders = Order::with(['orderItems.food', 'user'])->where('eatery_id', Auth::user()->eatery->id)->whereIn('status', ['Retrieve', 'Delivered'])->get();
 
         return Inertia::render('Eatery/Order', [
             'orders' =>  $orders
@@ -169,7 +171,7 @@ class OrderController extends Controller
      */
     public function deliverer()
     {
-        //liste des commandes livreur
+        /*  
         $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.status_payment', true)
             ->where('orders.deliverer_id', null)
@@ -178,12 +180,7 @@ class OrderController extends Controller
             ->join('food', 'food.id', 'order_items.food_id')
             ->get();
 
-        /*       $getOrders = Order::where('status_payment', true)
-            ->where('deliverer_id', null)
-            ->where('orders.status', '<>', 'Retrieve')
-            ->where('orders.status', '<>', 'Delivered')
-            ->join('eateries', 'orders.eatery_id', 'eateries.id')
-            ->get(); */
+
 
         $getOrders = Eatery::join('orders', 'orders.eatery_id', 'eateries.id')
             ->where('status_payment', true)
@@ -218,6 +215,10 @@ class OrderController extends Controller
                 }
             }
         }
+        */
+
+        $orders = Order::with(['orderItems.food', 'user'])->where('deliverer_id', null)->whereIn('status', ['Treatment', 'Preparation'])->get();
+
         return Inertia::render('Order/Deliverer', [
             'orders' =>  $orders
         ]);
@@ -231,8 +232,7 @@ class OrderController extends Controller
      */
     public function treateddeliverer()
     {
-        //liste des commandes livreur attribuées
-        $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
+        /* $order_items = Order::join('order_items', 'orders.id', 'order_items.order_id')
             ->where('orders.status_payment', true)
             ->where('orders.deliverer_id', Auth::user()->deliverer->id)
             ->join('food', 'food.id', 'order_items.food_id')
@@ -265,7 +265,8 @@ class OrderController extends Controller
                     ]);
                 }
             }
-        }
+        } */
+        $orders = Order::with(['orderItems.food', 'user'])->where('deliverer_id', Auth::user()->deliverer->id)->whereIn('status', ['Retrieve', 'Delivered'])->get();
         return Inertia::render('Deliverer/Order', [
             'orders' =>  $orders
         ]);
@@ -301,7 +302,7 @@ class OrderController extends Controller
             $transaction =  $kkiapay->verifyTransaction($request->transactionid);
 
             if ($transaction->status === 'SUCCESS' && $request->cart["totalCartTva"] == $totalPrice) {
- */
+        */
         $order =  Order::create([
             'comment' => $request->comment,
             'phone' => $request->phone,

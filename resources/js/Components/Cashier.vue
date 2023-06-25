@@ -15,7 +15,7 @@ const cartStore = useCartStore();
 const form = useForm({
     cart: cartStore,
     comment: "String",
-    address: "Cotonou",
+    address: "",
     phone: "61000000",
     transactionid: null,
     account: "",
@@ -23,7 +23,9 @@ const form = useForm({
 
 const submit = () => {
     form.post(route("order.store"));
+    cartStore.resetCart();
 };
+const isMounted = ref(true);
 
 const pay = () => {
     if (user?.rule !== "user") {
@@ -39,7 +41,7 @@ const pay = () => {
                 theme: "#f39719",
                 sandbox: true,
                 address: form.address,
-                email: "randomgail@gmail.com",
+                email: "azobo@yopmail.fr",
                 phone: form.phone,
             });
         } else {
@@ -49,10 +51,12 @@ const pay = () => {
 };
 
 const successHandler = (response) => {
-    form.transactionid = response.transactionId;
-    form.account = response.account;
-    if (response.transactionId) {
-        submit();
+    if (isMounted.value) {
+        form.transactionid = response.transactionId;
+        form.account = response.account;
+        if (response.transactionId) {
+            submit();
+        }
     }
 };
 
@@ -61,6 +65,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+    isMounted.value = false;
     removeKkiapayListener("success", successHandler);
 });
 </script>
@@ -86,7 +91,7 @@ onUnmounted(() => {
                         type="text"
                         v-model="form.address"
                         class="w-full bg-bouff-primarytree outline-none"
-                        placeholder="Cotonou, Serietei Karakura "
+                        placeholder="Konoha, Leaf village"
                     />
                 </div>
             </div>
@@ -151,7 +156,7 @@ onUnmounted(() => {
                 </div>
                 <div class="flex flex-row justify-between">
                     <span>Frais de service</span
-                    ><span>{{ cartStore.totalCartPrice * 0.019 }} CFA</span>
+                    ><span>{{ cartStore.totalCartPrice * 0.01 }} CFA</span>
                 </div>
                 <div class="flex flex-row justify-between">
                     <span>Sous total</span
@@ -168,13 +173,15 @@ onUnmounted(() => {
                     :disabled="
                         cartStore.totalCart < 1 ||
                         $page?.props?.auth?.user?.rule === 'deliverer' ||
-                        $page?.props?.auth?.user?.rule === 'eatery'
+                        $page?.props?.auth?.user?.rule === 'eatery' ||
+                        form.address.length <= 0
                     "
                     :class="{
                         'opacity-25':
                             cartStore.totalCart < 1 ||
                             $page?.props?.auth?.user?.rule === 'deliverer' ||
-                            $page?.props?.auth?.user?.rule === 'eatery',
+                            $page?.props?.auth?.user?.rule === 'eatery' ||
+                            form.address.length <= 0,
                     }"
                     name="yes"
                     text="Passer commande"

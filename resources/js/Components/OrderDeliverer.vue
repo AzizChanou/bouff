@@ -24,7 +24,10 @@ defineProps({
                     <div class="flex space-x-2">
                         <OrderStatus :state="order.status" />
                         <div
-                            v-if="order.status === 'Treatment' || order.status === 'Preparation'"
+                            v-if="
+                                order.status === 'Treatment' ||
+                                order.status === 'Preparation'
+                            "
                             class="flex items-center"
                         >
                             <Link
@@ -60,7 +63,15 @@ defineProps({
                     />
                 </svg>
             </summary>
-
+            <div
+                class="px-6 my-2 leading-relaxed text-gray-700 space-y-2 text-justify"
+            >
+                <div class="flex justify-between space-x-3">
+                    <span class="">{{ order.user.name }}</span>
+                    <span>{{ order.user.address }}</span>
+                    <span class="">{{ order.user.phone }}</span>
+                </div>
+            </div>
             <div
                 class="px-6 my-2 leading-relaxed text-gray-700 space-y-2 text-justify"
             >
@@ -71,7 +82,7 @@ defineProps({
                     <span class="text-bouff-primaryone"
                         >x{{ order_item.quantity }}</span
                     >
-                    <span>{{ order_item.name }}</span>
+                    <span>{{ order_item.food.name }}</span>
                     <span class="text-bouff-primaryone"
                         >{{ order_item.price }} CFA</span
                     >

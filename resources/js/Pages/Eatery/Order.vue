@@ -2,10 +2,12 @@
 import { Head } from "@inertiajs/inertia-vue3";
 import EateryDashboard from "@/Layouts/EateryDashboard.vue";
 import OrderEatery from "@/Components/OrderEatery.vue";
+import { onMounted } from "vue";
 
 const props = defineProps({
     orders: Object,
 });
+
 </script>
 
 <template>

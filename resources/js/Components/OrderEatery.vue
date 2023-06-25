@@ -25,7 +25,7 @@ defineProps({
                         <Link
                             v-if="order.status === 'Treatment'"
                             :href="route('order.ready', order.id)"
-                            class="bg-bouff-secondarytwo whitespace-nowrap rounded-md inline px-3 py-2 font-semibold text-white"
+                            class="bg-bouff-secondarytwo hover:bg-bouff-primaryone whitespace-nowrap rounded-md inline px-3 py-2 font-semibold text-white"
                         >
                             Prêt
                         </Link>
@@ -52,13 +52,28 @@ defineProps({
                 class="px-6 my-2 leading-relaxed text-gray-700 space-y-2 text-justify"
             >
                 <div
+                    class="flex justify-between space-x-3"
+                >
+                    <span class=""
+                        >{{ order.user.name }}</span
+                    >
+                    <span>{{ order.user.address }}</span>
+                    <span class=""
+                        >{{ order.user.phone }}</span
+                    >
+                </div>
+            </div>
+            <div
+                class="px-6 my-2 leading-relaxed text-gray-700 space-y-2 text-justify"
+            >
+                <div
                     v-for="order_item in order.order_items"
                     class="flex justify-between space-x-3"
                 >
                     <span class="text-bouff-primaryone"
                         >x{{ order_item.quantity }}</span
                     >
-                    <span>{{ order_item.name }}</span>
+                    <span>{{ order_item.food.name }}</span>
                     <span class="text-bouff-primaryone"
                         >{{ order_item.price }} CFA</span
                     >

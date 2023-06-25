@@ -12,7 +12,7 @@
     <link href="{{asset('assets/webfonts/uicons-solid-rounded.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
-    {{-- @laravelPWA --}}
+    @laravelPWA
     @routes
     @vite('resources/js/app.js')
     @inertiaHead
