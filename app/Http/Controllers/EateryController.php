@@ -90,10 +90,17 @@ class EateryController extends Controller
         ]);
 
         if ($request->hasFile('picture')) {
-            $picture_name = Auth::user()->eatery->id . '_' . $request->label . '.' . $request->file('picture')->extension();
-            $picture_path = $request->file('picture')->storeAs('eatery', $picture_name);
-            $eatery->picture_path = Storage::url($picture_path);
+            $eatery = Auth::user()->eatery;
+
+            $picture = $request->file('picture');
+            $picture_extension = $picture->extension();
+
+            $picture_name = $eatery->id . '_' . $request->input('label') . '.' . $picture_extension;
+            $picture_path = $picture->storeAs('eatery', $picture_name, 'public');
+
+            $eatery->picture_path = asset('storage/' . $picture_path);
         }
+
 
         $eatery->label = $request['label'];
         $eatery->ifu = $request['ifu'];

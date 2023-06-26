@@ -70,7 +70,7 @@ class FoodController extends Controller
             'description' => $request->description,
             'eatery_id' => Auth::user()->eatery->id,
             'food_category_id' => $request->category,
-            'picture_path' => Storage::url($picture_path),
+            'picture_path' => asset('storage/' . $picture_path),
         ]);
 
         return redirect()->route('food.index')->with('success', 'Bouff cree avec succees !');
@@ -123,7 +123,7 @@ class FoodController extends Controller
         if ($request->hasFile('picture')) {
             $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
             $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name);
-            $food->picture_path = Storage::url($picture_path);
+            $food->picture_path = asset('storage/' . $picture_path);
         }
 
         $food->name = $request->name;
