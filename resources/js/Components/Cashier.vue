@@ -156,7 +156,12 @@ onUnmounted(() => {
                 </div>
                 <div class="flex flex-row justify-between">
                     <span>Frais de service</span
-                    ><span>{{ cartStore.totalCartPrice * 0.01 }} CFA</span>
+                    ><span
+                        >{{
+                            (cartStore.totalCartPrice * 0.01).toFixed(2)
+                        }}
+                        CFA</span
+                    >
                 </div>
                 <div class="flex flex-row justify-between">
                     <span>Sous total</span
