@@ -95,7 +95,7 @@ class EateryController extends Controller
             $picture = $request->file('picture');
             $picture_extension = $picture->extension();
 
-            $picture_name = $eatery->id . '_' . $request->input('label') . '.' . $picture_extension;
+            $picture_name = $eatery->id . rand(1, 99) . $request->input('label') . '.' . $picture_extension;
             $picture_path = $picture->storeAs('eatery', $picture_name, 'public');
 
             $eatery->picture_path = asset('storage/' . $picture_path);

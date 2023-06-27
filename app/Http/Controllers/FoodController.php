@@ -56,12 +56,19 @@ class FoodController extends Controller
             'price' => ['required', 'min:3', 'max:12'],
             'description' => ['nullable', 'string', 'max:255'],
             'category' => ['required'],
-            'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
+            // 'picture' => ['required', 'mimes:jpeg,jpg,png', 'max:2048'],
         ]);
 
-        // $picture_path = "/storage" . '/' . $request->file('picture')->storeAs('food_picture', $picture_name, 'public');
-        $picture_name = Auth::user()->eatery->id . '_' . $request->name . '.' . $request->file('picture')->extension();
-        $picture_path = $request->file('picture')->storeAs('food_picture', $picture_name);
+
+        if ($request->hasFile('picture')) {
+            $eatery = Auth::user()->eatery;
+
+            $picture = $request->file('picture');
+            $picture_extension = $picture->extension();
+
+            $picture_name = $eatery->id . '_' . $request->name . rand(1, 99) . '.' . $picture_extension;
+            $picture_path = $picture->storeAs('food_picture', $picture_name, 'public');
+        }
 
         Food::create([
             'status' => true,

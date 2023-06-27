@@ -150,7 +150,7 @@ const submit = () => {
                             :class="{ 'opacity-75': form.processing }"
                             class="px-4 py-3 bg-bouff-primaryone text-white font-bold rounded-md hover:bg-bouff-secondarytwo duration-500"
                         >
-                            Ajouter
+                            Editer
                         </button>
                         <Link
                             as="button"
