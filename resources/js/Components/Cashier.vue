@@ -22,8 +22,8 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("order.store"));
     cartStore.resetCart();
+    form.post(route("order.store"));
 };
 const isMounted = ref(true);
 

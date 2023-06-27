@@ -281,7 +281,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->cart);
         $kkiapay = new \Kkiapay\Kkiapay(
             env('KKIPA_PUBLIC_KEY'),
             env('KKIPA_PRIVAYE_KEY'),
@@ -295,14 +294,8 @@ class OrderController extends Controller
             $totalPrice += $food->price * $request->cart["cart"][$i]["quantity"];
         }
 
-        $totalPrice += (500 + ($totalPrice * 0.019));
+        $totalPrice += (500 + ($totalPrice * 0.01));
 
-        /*   if ($request->transactionid) {
-
-            $transaction =  $kkiapay->verifyTransaction($request->transactionid);
-
-            if ($transaction->status === 'SUCCESS' && $request->cart["totalCartTva"] == $totalPrice) {
-        */
         $order =  Order::create([
             'comment' => $request->comment,
             'phone' => $request->phone,
@@ -323,13 +316,6 @@ class OrderController extends Controller
         }
 
         return redirect()->back()->with('success', 'Commande effectuée !');
-        /*      } else {
-
-                return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
-            }
-        } else {
-            return redirect()->back()->with('error', 'Commande non effectuée, veuillez reesayer !');
-        } */
     }
 
     /**
